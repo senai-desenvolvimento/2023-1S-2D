@@ -31,7 +31,7 @@ Repositório com os conteúdos desenvolvidos com as turmas do primeiro semestre 
 
 - Deploy
 
-## Sprint 
+## Sprint 5
 
 - Inteligência Artificial
 
