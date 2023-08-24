@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "FrHJ891nQSp+wVgH5k8ADbls0q22IbQRom5zAonpzto=",
+  "Source": "webapi.filmes.tarde",
+  "BasePath": "_content/webapi.filmes.tarde",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
