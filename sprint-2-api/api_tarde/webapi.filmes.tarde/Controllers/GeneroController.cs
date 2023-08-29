@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using webapi.filmes.tarde.Domains;
 using webapi.filmes.tarde.Interfaces;
 using webapi.filmes.tarde.Repositories;
@@ -23,6 +22,8 @@ namespace webapi.filmes.tarde.Controllers
     /// </summary>
     [Produces("application/json")]
 
+    //Método controlador que herda da controller base
+    //Onde será criado os Endpoints (rotas)
     public class GeneroController : ControllerBase
     {
         /// <summary>
@@ -58,6 +59,84 @@ namespace webapi.filmes.tarde.Controllers
             catch (Exception erro)
             {
                 //Retorna um status code 400 - BadRequest e a mensagem de erro
+                return BadRequest(erro.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// Endpoint que acessa o método de cadastrar gênero 
+        /// </summary>
+        /// <param name="novoGenero">Objeto recebido na requisição</param>
+        /// <returns>Status code</returns>
+        [HttpPost]
+        public IActionResult Post(GeneroDomain novoGenero)
+        {
+            try
+            {
+                //Faz a chamada para o método cadastrar
+                _generoRepository.Cadastrar(novoGenero);
+
+                //retorna um status code
+                return StatusCode(201);
+                
+            }
+            catch (Exception erro)
+            {
+                //Retorna um status code BadRequest (400) e a mensagem de erro
+                return BadRequest(erro.Message);
+            }
+        }
+
+        /// <summary>
+        /// Endpoint que aciona o método de deletar gênero
+        /// </summary>
+        /// <param name="id">Id do gênero a ser deletado</param>
+        /// <returns>Status Code</returns>
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                //Fazendo a chamada para o método deletar passando o id como parâmetro
+                _generoRepository.Deletar(id);
+
+                // Retorna um status code 204 - No Content
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+                // Retorna um status 400 - BadRequest e o código do erro 
+                return BadRequest(erro.Message);
+            }
+        }
+
+        /// <summary>
+        /// Endpoint que aciona o método de buscar por id
+        /// </summary>
+        /// <param name="id">Id do objeto a ser buscado</param>
+        /// <returns>Status Code e objeto caso encontrado</returns>
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            try
+            {
+                // Cria um objeto generoBuscado que irá receber o gênero buscado no banco de dados
+                GeneroDomain generoBuscado = _generoRepository.BuscarPorId(id);
+
+                // Verifica se nenhum gênero foi encontrado
+                if (generoBuscado == null)
+                {
+                    // Caso não seja encontrado, retorna um status code 404 - Not Found com a mensagem personalizada
+                    return NotFound("O Gênero buscado não foi encontrado !");
+                }
+
+                // Caso seja encontrado, retorna o gênero buscado com um status code 200 - Ok
+                return Ok(generoBuscado);
+            }
+            catch (Exception erro)
+            {
+                // Retorna um status 400 - BadRequest e o código do erro
                 return BadRequest(erro.Message);
             }
         }

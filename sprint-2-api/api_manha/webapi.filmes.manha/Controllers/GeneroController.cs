@@ -23,7 +23,7 @@ namespace webapi.filmes.manha.Controllers
         /// <summary>
         /// Objeto _generoRepository que irá receber todos os métodos definidos na interface IGeneroRepository
         /// </summary>
-        private IGeneroRepository _generoRepository {  get; set; }
+        private IGeneroRepository _generoRepository { get; set; }
 
         /// <summary>
         /// Instancia o objeto _generoRepository para que haja referência aos métodos no repositório
@@ -47,7 +47,7 @@ namespace webapi.filmes.manha.Controllers
 
                 //Retorna a lista no formato JSON com o status code Ok(200)
                 return Ok(listaGeneros);
-                
+
             }
             catch (Exception erro)
             {
@@ -75,6 +75,59 @@ namespace webapi.filmes.manha.Controllers
             catch (Exception erro)
             {
                 //Retorna um status code 400(BadRequest) e a mensagem do erro
+                return BadRequest(erro.Message);
+            }
+        }
+
+        /// <summary>
+        /// Endpoint que aciona o método de deletar gênero
+        /// </summary>
+        /// <param name="id">Id do gênero a ser deletado</param>
+        /// <returns>Status Code</returns>
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                //Fazendo a chamada para o método deletar passando o id como parâmetro
+                _generoRepository.Deletar(id);
+
+                // Retorna um status code 204 - No Content
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+                // Retorna um status 400 - BadRequest e o código do erro 
+                return BadRequest(erro.Message);
+            }
+        }
+
+        /// <summary>
+        /// Endpoint que aciona o método de buscar por id
+        /// </summary>
+        /// <param name="id">Id do objeto a ser buscado</param>
+        /// <returns>Status Code e objeto caso encontrado</returns>
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            try
+            {
+                // Cria um objeto generoBuscado que irá receber o gênero buscado no banco de dados
+                GeneroDomain generoBuscado  = _generoRepository.BuscarPorId(id);
+
+                // Verifica se nenhum gênero foi encontrado
+                if (generoBuscado == null)
+                {
+                    // Caso não seja encontrado, retorna um status code 404 - Not Found com a mensagem personalizada
+                    return NotFound("Nenhum gênero foi encontrado!");
+                }
+
+                // Caso seja encontrado, retorna o gênero buscado com um status code 200 - Ok
+                return Ok(generoBuscado);
+            }
+            catch (Exception erro)
+            {
+                // Retorna um status 400 - BadRequest e o código do erro
                 return BadRequest(erro.Message);
             }
         }

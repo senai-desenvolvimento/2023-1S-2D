@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>webapi.filmes.tarde</name>
+    </assembly>
+    <members>
+        <member name="T:webapi.filmes.tarde.Controllers.GeneroController">
+            <summary>
+            Define que a rota de uma requisição será no seguinte formato
+            dominio/api/nomeController
+            exemplo: http://localhost:5000/api/Genero
+            </summary>
+        </member>
+        <member name="P:webapi.filmes.tarde.Controllers.GeneroController._generoRepository">
+            <summary>
+            Objeto que irá receber os métodos definidos na interface
+            </summary>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.GeneroController.#ctor">
+            <summary>
+            Instância do objeto _generoRepository para que haja referência
+            aos métodos no repositório
+            </summary>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.GeneroController.Get">
+            <summary>
+            Endpoint que acessa o método de listar os gêneros
+            </summary>
+            <returns>Lista de gêneros e um status code</returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.GeneroController.Post(webapi.filmes.tarde.Domains.GeneroDomain)">
+            <summary>
+            Endpoint que acessa o método de cadastrar gênero 
+            </summary>
+            <param name="novoGenero">Objeto recebido na requisição</param>
+            <returns>Status code</returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.GeneroController.Delete(System.Int32)">
+            <summary>
+            Endpoint que aciona o método de deletar gênero
+            </summary>
+            <param name="id">Id do gênero a ser deletado</param>
+            <returns>Status Code</returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.GeneroController.GetById(System.Int32)">
+            <summary>
+            Endpoint que aciona o método de buscar por id
+            </summary>
+            <param name="id">Id do objeto a ser buscado</param>
+            <returns>Status Code e objeto caso encontrado</returns>
+        </member>
+        <member name="T:webapi.filmes.tarde.Domains.FilmeDomain">
+            <summary>
+            Classe que representa a entidade(tabela) Filme
+            </summary>
+        </member>
+        <member name="T:webapi.filmes.tarde.Domains.GeneroDomain">
+            <summary>
+            Classe que representa a entidade(tabela) Genero
+            </summary>
+        </member>
+        <member name="T:webapi.filmes.tarde.Interfaces.IFilmeRepository">
+            <summary>
+            Interface responsável pelo repositório FilmeRepository
+            Definir os métodos que serão implementados pelo FilmeRepository
+            </summary>
+        </member>
+        <member name="M:webapi.filmes.tarde.Interfaces.IFilmeRepository.Cadastrar(webapi.filmes.tarde.Domains.FilmeDomain)">
+            <summary>
+            Cadastrar um novo filme
+            </summary>
+            <param name="novoFilme">Objeto que será cadastrado</param>
+        </member>
+        <member name="M:webapi.filmes.tarde.Interfaces.IFilmeRepository.ListarTodos">
+            <summary>
+            Listar todos os objetos cadastrados
+            </summary>
+            <returns>Lista com os objetos</returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Interfaces.IFilmeRepository.AtualizarIdCorpo(webapi.filmes.tarde.Domains.FilmeDomain)">
+            <summary>
+            Atualizar objeto existente passando o seu id pelo corpo da requisição
+            </summary>
+            <param name="filme">Objeto atualizado (novas informações)</param>
+        </member>
+        <member name="M:webapi.filmes.tarde.Interfaces.IFilmeRepository.AtualizarIdUrl(System.Int32,webapi.filmes.tarde.Domains.FilmeDomain)">
+            <summary>
+            Atualizar objeto existente passando o seu id pela url 
+            </summary>
+            <param name="id">Id do objeto que será atualizado</param>
+            <param name="filme))">Objeto atualizado(novas informações)</param>
+        </member>
+        <member name="M:webapi.filmes.tarde.Interfaces.IFilmeRepository.Deletar(System.Int32)">
+            <summary>
+            Deletar um objeto
+            </summary>
+            <param name="id">Id do objeto que será deletado</param>
+        </member>
+        <member name="M:webapi.filmes.tarde.Interfaces.IFilmeRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Busca um objeto através do seu id
+            </summary>
+            <param name="id">Id do objeto a ser buscado</param>
+            <returns>Objeto buscado</returns>
+        </member>
+        <member name="T:webapi.filmes.tarde.Interfaces.IGeneroRepository">
+            <summary>
+            Interface responsável pelo repositório GeneroRepository
+            Define os métodos que serão implementados pelo repositório
+            </summary>
+        </member>
+        <member name="M:webapi.filmes.tarde.Interfaces.IGeneroRepository.Cadastrar(webapi.filmes.tarde.Domains.GeneroDomain)">
+            <summary>
+            Cadastrar um novo gênero
+            </summary>
+            <param name="novoGenero">Objeto que será cadastrado</param>
+        </member>
+        <member name="M:webapi.filmes.tarde.Interfaces.IGeneroRepository.ListarTodos">
+            <summary>
+            Retornar todos os gêneros cadastrados
+            </summary>
+            <returns>Uma lista de gêneros</returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Interfaces.IGeneroRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um objeto através do seu id
+            </summary>
+            <param name="id">id do objeto que será buscado</param>
+            <returns>Objeto que foi buscado</returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Interfaces.IGeneroRepository.AtualizarIdCorpo(webapi.filmes.tarde.Domains.GeneroDomain)">
+            <summary>
+            Atualizar um gênero existente passando o id pelo corpo da requisição
+            </summary>
+            <param name="genero">Objeto com as novas informações</param>
+        </member>
+        <member name="M:webapi.filmes.tarde.Interfaces.IGeneroRepository.AtualizarIdUrl(System.Int32,webapi.filmes.tarde.Domains.GeneroDomain)">
+            <summary>
+            Atualizar um gênero existente passando o id pela URL da requisição
+            </summary>
+            <param name="id">Id do objeto a ser atualizado</param>
+            <param name="genero">Objeto com as novas informações</param>
+        </member>
+        <member name="M:webapi.filmes.tarde.Interfaces.IGeneroRepository.Deletar(System.Int32)">
+            <summary>
+            Deletar um gênero existente
+            </summary>
+            <param name="id">Id do objeto a ser deletado</param>
+        </member>
+        <member name="T:webapi.filmes.tarde.Repositories.GeneroRepository">
+            <summary>
+            Classe responsável pelo repositório dos gêneros
+            </summary>
+        </member>
+        <member name="F:webapi.filmes.tarde.Repositories.GeneroRepository.StringConexao">
+            <summary>
+            String de conexão com o banco de dados que recebe os seguintes parâmetros:
+            Data Source : Nome do servidor do banco
+            Initial Catalog: Nome do banco de dados
+            Autenticação
+                - windows : Integrated Security = True
+                -SqlServer : User Id = sa; Pwd = Senha
+            </summary>
+        </member>
+        <member name="M:webapi.filmes.tarde.Repositories.GeneroRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um gênero através do seu id
+            </summary>
+            <param name="id">Id do gênero a ser buscado</param>
+            <returns>Objeto buscado</returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Repositories.GeneroRepository.Cadastrar(webapi.filmes.tarde.Domains.GeneroDomain)">
+            <summary>
+            Cadastrar um novo gênero
+            </summary>
+            <param name="novoGenero">Objeto com as informações que serão cadastradas</param>
+        </member>
+        <member name="M:webapi.filmes.tarde.Repositories.GeneroRepository.Deletar(System.Int32)">
+            <summary>
+            Delatar um gênero
+            </summary>
+            <param name="id">Id do gênero a ser deletado</param>
+        </member>
+        <member name="M:webapi.filmes.tarde.Repositories.GeneroRepository.ListarTodos">
+            <summary>
+            Listar todos os objetos do tipo genero
+            </summary>
+            <returns>Lista de objetos do tipo gênero</returns>
+        </member>
+    </members>
+</doc>

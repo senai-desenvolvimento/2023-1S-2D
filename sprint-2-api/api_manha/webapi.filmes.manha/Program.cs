@@ -1,10 +1,32 @@
+using Microsoft.OpenApi.Models;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 //Adiciona o serviço de Controllers
 builder.Services.AddControllers();
 
 //Adicione o gerador do Swagger à coleção de serviços
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    //Adiciona informações sobre a API no Swagger
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "v1",
+        Title = "API Filmes Manhã",
+        Description = "API para gereciamento de filmes - Introdução da sprint 2 - Backend API",
+        Contact = new OpenApiContact
+        {
+            Name = "Senai Informática - Turma Manhã",
+            Url = new Uri("https://github.com/senai-desenvolvimento")
+        }
+    });
+
+
+    //Configura o Swagger para usar o arquivo XML gerado
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+});
 
 var app = builder.Build();
 
