@@ -19,15 +19,61 @@ namespace webapi.filmes.manha.Repositories
         /// </summary>
         private string StringConexao = "Data Source = DESKTOP-B541VSR; Initial Catalog = Filmes; Integrated Security = true";
         
-
+        /// <summary>
+        /// Atualizar um gênero passando o seu id pelo corpo da requisição
+        /// </summary>
+        /// <param name="genero">Objeto gênero com as novas informações</param>
         public void AtualizarIdCorpo(GeneroDomain genero)
         {
-            throw new NotImplementedException();
+            // Declara a SqlConnection con passando a string de conexão como parâmetro
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                // Declara a query a ser executada
+                string queryUpdateIdBody = "UPDATE Genero SET Nome = @Nome WHERE IdGenero = @IdGenero";
+
+                // Abre a conexão com o banco de dados
+                con.Open();
+
+                // Declara o SqlCommand passando o comando a ser executado e a conexão
+                using (SqlCommand cmd = new SqlCommand(queryUpdateIdBody,con))
+                {
+                    // Passa os valores dos parâmetros
+                    cmd.Parameters.AddWithValue("@Nome", genero.Nome);
+                    cmd.Parameters.AddWithValue("@IdGenero", genero.IdGenero);
+
+                    // Executa o comando
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
+        /// <summary>
+        /// Atualiza um gênero passando o id pelo recurso
+        /// </summary>
+        /// <param name="id">id do gênero que será atualizado</param>
+        /// <param name="genero">objeto gênero com as novas informações</param>
         public void AtualizarIdUrl(int id, GeneroDomain genero)
         {
-            throw new NotImplementedException();
+            // Declara a SqlConnection con passando a string de conexão como parâmetro
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                // Declara a query a ser executada
+                string queryUpdateIdUrl = "UPDATE Genero SET Nome = @Nome WHERE IdGenero = @IdGenero";
+
+                // Declara o SqlCommand cmd passando a query que será executada e a conexão como parâmetros
+                using (SqlCommand cmd = new SqlCommand(queryUpdateIdUrl,con))
+                {
+                    // Passa os valores dos parâmetros
+                    cmd.Parameters.AddWithValue("@IdGenero", id);
+                    cmd.Parameters.AddWithValue("Nome",genero.Nome);
+                    
+                    // Abre a conexão com o banco de dados
+                    con.Open();
+
+                    // Executa o comando
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         /// <summary>

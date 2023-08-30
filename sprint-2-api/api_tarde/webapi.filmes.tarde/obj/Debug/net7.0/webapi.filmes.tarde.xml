@@ -49,6 +49,21 @@
             <param name="id">Id do objeto a ser buscado</param>
             <returns>Status Code e objeto caso encontrado</returns>
         </member>
+        <member name="M:webapi.filmes.tarde.Controllers.GeneroController.PutIdBody(webapi.filmes.tarde.Domains.GeneroDomain)">
+            <summary>
+            Atualiza um gênero existente passando o seu id pelo corpo da requisição
+            </summary>
+            <param name="genero">Objeto genero com as novas informações</param>
+            <returns>Um status code</returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.GeneroController.PutIdUrl(System.Int32,webapi.filmes.tarde.Domains.GeneroDomain)">
+            <summary>
+            Atualiza um gênero existente passando o seu id pelo recurso
+            </summary>
+            <param name="id">id do gênero que será atualizado</param>
+            <param name="genero">Objeto genero com as novas informações</param>
+            <returns>Um status code</returns>
+        </member>
         <member name="T:webapi.filmes.tarde.Domains.FilmeDomain">
             <summary>
             Classe que representa a entidade(tabela) Filme
@@ -161,6 +176,19 @@
                 - windows : Integrated Security = True
                 -SqlServer : User Id = sa; Pwd = Senha
             </summary>
+        </member>
+        <member name="M:webapi.filmes.tarde.Repositories.GeneroRepository.AtualizarIdCorpo(webapi.filmes.tarde.Domains.GeneroDomain)">
+            <summary>
+            Atualizar um gênero passando o seu id pelo corpo da requisição
+            </summary>
+            <param name="genero">Objeto com as novas informações</param>
+        </member>
+        <member name="M:webapi.filmes.tarde.Repositories.GeneroRepository.AtualizarIdUrl(System.Int32,webapi.filmes.tarde.Domains.GeneroDomain)">
+            <summary>
+            Atualiza um gênero passando o id pelo recurso
+            </summary>
+            <param name="id">id do gênero que será atualizado</param>
+            <param name="genero">objeto gênero com as novas informações</param>
         </member>
         <member name="M:webapi.filmes.tarde.Repositories.GeneroRepository.BuscarPorId(System.Int32)">
             <summary>

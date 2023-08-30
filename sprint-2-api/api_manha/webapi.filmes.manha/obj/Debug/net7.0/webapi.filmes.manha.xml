@@ -41,6 +41,13 @@
             <param name="id">Id do objeto a ser buscado</param>
             <returns>Status Code e objeto caso encontrado</returns>
         </member>
+        <member name="M:webapi.filmes.manha.Controllers.GeneroController.PutIdBody(webapi.filmes.manha.Domains.GeneroDomain)">
+            <summary>
+            Atualiza um gênero existente passando o seu id pelo corpo da requisição
+            </summary>
+            <param name="genero">Objeto generoAtualizado com as novas informações</param>
+            <returns>Um status code</returns>
+        </member>
         <member name="T:webapi.filmes.manha.Domains.FilmeDomain">
             <summary>
             Classe que representa a entidade(tabela) filme
@@ -158,6 +165,19 @@
                 - Windows : Integrated Security = true
                 - SqlServer: User Id = sa; Pwd = Senha
             </summary>
+        </member>
+        <member name="M:webapi.filmes.manha.Repositories.GeneroRepository.AtualizarIdCorpo(webapi.filmes.manha.Domains.GeneroDomain)">
+            <summary>
+            Atualizar um gênero passando o seu id pelo corpo da requisição
+            </summary>
+            <param name="genero">Objeto gênero com as novas informações</param>
+        </member>
+        <member name="M:webapi.filmes.manha.Repositories.GeneroRepository.AtualizarIdUrl(System.Int32,webapi.filmes.manha.Domains.GeneroDomain)">
+            <summary>
+            Atualiza um gênero passando o id pelo recurso
+            </summary>
+            <param name="id">id do gênero que será atualizado</param>
+            <param name="genero">objeto gênero com as novas informações</param>
         </member>
         <member name="M:webapi.filmes.manha.Repositories.GeneroRepository.BuscarPorId(System.Int32)">
             <summary>

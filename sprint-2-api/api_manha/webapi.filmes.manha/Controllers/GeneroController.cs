@@ -131,5 +131,92 @@ namespace webapi.filmes.manha.Controllers
                 return BadRequest(erro.Message);
             }
         }
+
+        /// <summary>
+        /// Atualiza um gênero existente passando o seu id pelo corpo da requisição
+        /// </summary>
+        /// <param name="genero">Objeto generoAtualizado com as novas informações</param>
+        /// <returns>Um status code</returns>
+        [HttpPut]
+        public IActionResult PutIdBody(GeneroDomain genero)
+        {
+            try
+            {
+                // Cria um objeto generoBuscado que irá receber o gênero buscado no banco de dados
+                GeneroDomain generoBuscado = _generoRepository.BuscarPorId(genero.IdGenero);
+
+                // Verifica se algum gênero foi encontrado
+                if (generoBuscado != null)
+                {
+                    // Tenta atualizar o registro
+                    try
+                    {
+                        // Faz a chamada para o método .AtualizarIdCorpo();
+                        _generoRepository.AtualizarIdCorpo(genero);
+
+                        // Retorna um status code 204 - No Content
+                        return StatusCode(204);
+                    }
+                    // Caso ocorra algum erro
+                    catch (Exception erro)
+                    {
+                        // Retorna BadRequest e o erro
+                        return BadRequest(erro.Message);
+                    }
+                }
+                // Caso não seja encontrado, retorna NotFound com uma mensagem personalizada
+                return NotFound("Gênero não encontrado!");
+            }
+            catch (Exception erro)
+            {
+                // Retorna BadRequest e o erro
+                return BadRequest(erro.Message);
+            }
+        }
+
+        /// <summary>
+        /// Atualiza um gênero existente passando o seu id pelo recurso
+        /// </summary>
+        /// <param name="id">id do gênero que será atualizado</param>
+        /// <param name="genero">Objeto genero com as novas informações</param>
+        /// <returns>Um status code</returns>
+        [HttpPut("{id}")]
+        public IActionResult PutIdUrl(int id, GeneroDomain genero)
+        {
+            try
+            {
+                // Cria um objeto generoBuscado que irá receber o gênero buscado no banco de dados
+                GeneroDomain generoBuscado = _generoRepository.BuscarPorId(id);
+
+                // Caso não seja encontrado
+                if (generoBuscado == null)
+                {
+                    //retorna NotFound com uma mensagem personalizada
+                    return NotFound("Genero não encontrado !");
+                }
+
+                // Tenta atualizar o registro
+                try
+                {
+                    // Faz a chamada para o método .AtualizarIdUrl()
+                    _generoRepository.AtualizarIdUrl(id, genero);
+
+                    // Retorna um status code 204 - No Content
+                    return NoContent();
+                }
+                // Caso ocorra algum erro
+                catch (Exception erro)
+                {
+                    // Retorna um status 400 - BadRequest e o código do erro
+                    return BadRequest(erro.Message);
+                }
+            }
+            // Caso ocorra algum erro
+            catch (Exception erro)
+            {
+                // Retorna um status 400 - BadRequest e o código do erro
+                return BadRequest(erro.Message);
+            }
+        }
     }
 }

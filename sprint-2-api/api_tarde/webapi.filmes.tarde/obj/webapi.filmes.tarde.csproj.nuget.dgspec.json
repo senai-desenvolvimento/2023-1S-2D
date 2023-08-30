@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carlos.roque\\Desktop\\api_tarde\\webapi.filmes.tarde\\webapi.filmes.tarde.csproj": {}
+    "C:\\Users\\carlos.roque\\Desktop\\2023-1S-2D\\sprint-2-api\\api_tarde\\webapi.filmes.tarde\\webapi.filmes.tarde.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carlos.roque\\Desktop\\api_tarde\\webapi.filmes.tarde\\webapi.filmes.tarde.csproj": {
+    "C:\\Users\\carlos.roque\\Desktop\\2023-1S-2D\\sprint-2-api\\api_tarde\\webapi.filmes.tarde\\webapi.filmes.tarde.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carlos.roque\\Desktop\\api_tarde\\webapi.filmes.tarde\\webapi.filmes.tarde.csproj",
+        "projectUniqueName": "C:\\Users\\carlos.roque\\Desktop\\2023-1S-2D\\sprint-2-api\\api_tarde\\webapi.filmes.tarde\\webapi.filmes.tarde.csproj",
         "projectName": "webapi.filmes.tarde",
-        "projectPath": "C:\\Users\\carlos.roque\\Desktop\\api_tarde\\webapi.filmes.tarde\\webapi.filmes.tarde.csproj",
+        "projectPath": "C:\\Users\\carlos.roque\\Desktop\\2023-1S-2D\\sprint-2-api\\api_tarde\\webapi.filmes.tarde\\webapi.filmes.tarde.csproj",
         "packagesPath": "C:\\Users\\carlos.roque\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carlos.roque\\Desktop\\api_tarde\\webapi.filmes.tarde\\obj\\",
+        "outputPath": "C:\\Users\\carlos.roque\\Desktop\\2023-1S-2D\\sprint-2-api\\api_tarde\\webapi.filmes.tarde\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\carlos.roque\\AppData\\Roaming\\NuGet\\NuGet.Config",
