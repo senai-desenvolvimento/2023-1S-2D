@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq.Expressions;
-using webapi.filmes.tarde.Domains;
-using webapi.filmes.tarde.Interfaces;
-using webapi.filmes.tarde.Repositories;
+using webapi.filmes.manha.Domains;
+using webapi.filmes.manha.Interfaces;
+using webapi.filmes.manha.Repositories;
 
-namespace webapi.filmes.tarde.Controllers
+namespace webapi.filmes.manha.Controllers
 {
     //Define que a rota de uma requisição será no seguinte formato
     //dominio/api/nomeController

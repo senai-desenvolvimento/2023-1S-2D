@@ -4,6 +4,60 @@
         <name>webapi.filmes.tarde</name>
     </assembly>
     <members>
+        <member name="P:webapi.filmes.tarde.Controllers.FilmeController._filmeRepository">
+            <summary>
+            Objeto _filmeRepository que irá receber todos os métodos definidos na interface IFilmeRepository
+            </summary>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.FilmeController.#ctor">
+            <summary>
+            Instancia o objeto _filmeRepository para que haja a referência aos métodos no repositório
+            </summary>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.FilmeController.Get">
+            <summary>
+            Lista todos os filmes
+            </summary>
+            <returns>Uma lista de filmes e um status code</returns>
+            dominio/api/Filme
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.FilmeController.Post(webapi.filmes.tarde.Domains.FilmeDomain)">
+            <summary>
+            Cadastra um novo filme
+            </summary>
+            <param name="novoFilme">Objeto novoFilme recebido na requisição</param>
+            <returns>Um status code 201 - Created</returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.FilmeController.Delete(System.Int32)">
+            <summary>
+            Deleta um filme existente
+            </summary>
+            <param name="id">id do filme que será deletado</param>
+            <returns>Um status code 204 - No Content</returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.FilmeController.PutIdBody(webapi.filmes.tarde.Domains.FilmeDomain)">
+            <summary>
+            Atualiza um filme existente passando o seu id pelo corpo da requisição
+            </summary>
+            <param name="filmeAtualizado">Objeto filmeAtualizado com as novas informações</param>
+            <returns>Um status code</returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.FilmeController.PutIdUrl(System.Int32,webapi.filmes.tarde.Domains.FilmeDomain)">
+            <summary>
+            Atualiza um filme existente passando o seu id pelo corpo da requisição
+            </summary>
+            <param name="id">id do filme que será atualizado</param>
+            <param name="filmeAtualizado">Objeto filmeAtualizado com as novas informações</param>
+            <returns>Um status code</returns>
+            http://localhost:5000/api/filme/3
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.FilmeController.GetById(System.Int32)">
+            <summary>
+            Busca um filme através do seu id
+            </summary>
+            <param name="id">id do filme que será buscado</param>
+            <returns>Um filme buscado ou NotFound caso nenhum filme seja encontrado</returns>
+        </member>
         <member name="T:webapi.filmes.tarde.Controllers.GeneroController">
             <summary>
             Define que a rota de uma requisição será no seguinte formato
@@ -161,6 +215,44 @@
             Deletar um gênero existente
             </summary>
             <param name="id">Id do objeto a ser deletado</param>
+        </member>
+        <member name="M:webapi.filmes.tarde.Repositories.FilmeRepository.AtualizarIdCorpo(webapi.filmes.tarde.Domains.FilmeDomain)">
+            <summary>
+            Atualiza um filme passando o id pelo corpo
+            </summary>
+            <param name="filme">Objeto filme com as novas informações</param>
+        </member>
+        <member name="M:webapi.filmes.tarde.Repositories.FilmeRepository.AtualizarIdUrl(System.Int32,webapi.filmes.tarde.Domains.FilmeDomain)">
+            <summary>
+            Atualiza um filme passando o id pelo recurso
+            </summary>
+            <param name="id">id do filme que será atualizado</param>
+            <param name="filme">objeto filme com as novas informações</param>
+        </member>
+        <member name="M:webapi.filmes.tarde.Repositories.FilmeRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Busca um filme através do seu id
+            </summary>
+            <param name="id">id do filme que será buscado</param>
+            <returns>Um filme buscado ou null caso não seja encontrado</returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Repositories.FilmeRepository.Cadastrar(webapi.filmes.tarde.Domains.FilmeDomain)">
+            <summary>
+            Cadastra um novo filme
+            </summary>
+            <param name="novoFilme">Objeto novoFilme com as informações que serão cadastradas</param>
+        </member>
+        <member name="M:webapi.filmes.tarde.Repositories.FilmeRepository.Deletar(System.Int32)">
+            <summary>
+            Deleta um filme através do seu id
+            </summary>
+            <param name="id">id do filme que será deletado</param>
+        </member>
+        <member name="M:webapi.filmes.tarde.Repositories.FilmeRepository.ListarTodos">
+            <summary>
+            Lista todos os filmes
+            </summary>
+            <returns>Uma lista de filmes</returns>
         </member>
         <member name="T:webapi.filmes.tarde.Repositories.GeneroRepository">
             <summary>

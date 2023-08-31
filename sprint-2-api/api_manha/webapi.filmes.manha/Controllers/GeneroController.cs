@@ -16,7 +16,7 @@ namespace webapi.filmes.manha.Controllers
     //Define que o tipo de resposta da API será no formato JSON
     [Produces("application/json")]
 
-    //Método controlador que herda da controller base
+    //Classe controladora que herda da controller base
     //Onde será criado os Endpoints (rotas)
     public class GeneroController : ControllerBase
     {
