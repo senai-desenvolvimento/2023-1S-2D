@@ -78,3 +78,11 @@ C:\Users\carlos.roque\Desktop\2023-1S-2D\sprint-2-api\api_manha\webapi.filmes.ma
 C:\Users\carlos.roque\Desktop\2023-1S-2D\sprint-2-api\api_manha\webapi.filmes.manha\obj\Debug\net7.0\webapi.filmes.manha.pdb
 C:\Users\carlos.roque\Desktop\2023-1S-2D\sprint-2-api\api_manha\webapi.filmes.manha\obj\Debug\net7.0\webapi.filmes.manha.genruntimeconfig.cache
 C:\Users\carlos.roque\Desktop\2023-1S-2D\sprint-2-api\api_manha\webapi.filmes.manha\obj\Debug\net7.0\ref\webapi.filmes.manha.dll
+C:\Users\carlos.roque\Desktop\2023-1S-2D\sprint-2-api\api_manha\webapi.filmes.manha\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\carlos.roque\Desktop\2023-1S-2D\sprint-2-api\api_manha\webapi.filmes.manha\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\carlos.roque\Desktop\2023-1S-2D\sprint-2-api\api_manha\webapi.filmes.manha\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\carlos.roque\Desktop\2023-1S-2D\sprint-2-api\api_manha\webapi.filmes.manha\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\carlos.roque\Desktop\2023-1S-2D\sprint-2-api\api_manha\webapi.filmes.manha\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\carlos.roque\Desktop\2023-1S-2D\sprint-2-api\api_manha\webapi.filmes.manha\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\carlos.roque\Desktop\2023-1S-2D\sprint-2-api\api_manha\webapi.filmes.manha\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\carlos.roque\Desktop\2023-1S-2D\sprint-2-api\api_manha\webapi.filmes.manha\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
