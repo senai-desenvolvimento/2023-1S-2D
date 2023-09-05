@@ -72,6 +72,7 @@ namespace webapi.filmes.tarde.Controllers
         /// <param name="novoGenero">Objeto recebido na requisição</param>
         /// <returns>Status code</returns>
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Post(GeneroDomain novoGenero)
         {
             try
