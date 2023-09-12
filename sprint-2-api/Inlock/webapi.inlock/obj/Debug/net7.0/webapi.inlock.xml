@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>webapi.inlock</name>
+    </assembly>
+    <members>
+        <member name="M:webapi.inlock.Controllers.EstudioController.Post(webapi.inlock.Domains.EstudioDomain)">
+            <summary>
+            Cadastra um novo estúdio
+            </summary>
+        </member>
+        <member name="M:webapi.inlock.Controllers.EstudioController.Get">
+            <summary>
+            Lista todos os estúdios cadastrados
+            </summary>
+        </member>
+        <member name="M:webapi.inlock.Controllers.EstudioController.GetWithGamers">
+            <summary>
+            Lista todos os estúdios cadastrados
+            </summary>
+        </member>
+        <member name="M:webapi.inlock.Controllers.JogoController.Post(webapi.inlock.Domains.JogoDomain)">
+            <summary>
+            Cadastra um novo jogo 
+            </summary>
+        </member>
+        <member name="M:webapi.inlock.Controllers.JogoController.Get">
+            <summary>
+            Lista todos os jogos cadastrados 
+            </summary>
+        </member>
+    </members>
+</doc>
