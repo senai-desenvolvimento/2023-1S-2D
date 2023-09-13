@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carlos.roque\\Desktop\\webapi.inlock.tarde\\webapi.inlock.tarde.csproj": {}
+    "C:\\Users\\carlos.roque\\Desktop\\2023-1S-2D\\sprint-2-api\\Inlock_DB_Tarde\\webapi.inlock.tarde\\webapi.inlock.tarde.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carlos.roque\\Desktop\\webapi.inlock.tarde\\webapi.inlock.tarde.csproj": {
+    "C:\\Users\\carlos.roque\\Desktop\\2023-1S-2D\\sprint-2-api\\Inlock_DB_Tarde\\webapi.inlock.tarde\\webapi.inlock.tarde.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carlos.roque\\Desktop\\webapi.inlock.tarde\\webapi.inlock.tarde.csproj",
+        "projectUniqueName": "C:\\Users\\carlos.roque\\Desktop\\2023-1S-2D\\sprint-2-api\\Inlock_DB_Tarde\\webapi.inlock.tarde\\webapi.inlock.tarde.csproj",
         "projectName": "webapi.inlock.tarde",
-        "projectPath": "C:\\Users\\carlos.roque\\Desktop\\webapi.inlock.tarde\\webapi.inlock.tarde.csproj",
+        "projectPath": "C:\\Users\\carlos.roque\\Desktop\\2023-1S-2D\\sprint-2-api\\Inlock_DB_Tarde\\webapi.inlock.tarde\\webapi.inlock.tarde.csproj",
         "packagesPath": "C:\\Users\\carlos.roque\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carlos.roque\\Desktop\\webapi.inlock.tarde\\obj\\",
+        "outputPath": "C:\\Users\\carlos.roque\\Desktop\\2023-1S-2D\\sprint-2-api\\Inlock_DB_Tarde\\webapi.inlock.tarde\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\carlos.roque\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.10, )"
