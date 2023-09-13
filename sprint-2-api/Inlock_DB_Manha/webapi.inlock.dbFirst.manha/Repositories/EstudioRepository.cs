@@ -10,22 +10,38 @@ namespace webapi.inlock.dbFirst.manha.Repositories
         InlockContext ctx = new InlockContext();
         public void Atualizar(Guid id, Estudio estudio)
         {
-            throw new NotImplementedException();
+            Estudio estudioBuscado = ctx.Estudios.Find(id)!;
+
+            if (estudioBuscado != null)
+            {
+                estudioBuscado.Nome = estudio.Nome;
+            }
+
+            ctx.Estudios.Update(estudioBuscado!);
+
+            ctx.SaveChanges();
         }
 
         public Estudio BuscarPorId(Guid id)
         {
-            throw new NotImplementedException();
+            return ctx.Estudios.FirstOrDefault(e => e.IdEstudio == id)!;
         }
 
         public void Cadastrar(Estudio estudio)
         {
-            throw new NotImplementedException();
+
+            ctx.Estudios.Add(estudio);
+
+            ctx.SaveChanges();
         }
 
         public void Deletar(Guid id)
         {
-            throw new NotImplementedException();
+            Estudio estudioBuscado = ctx.Estudios.Find(id)!;
+
+            ctx.Estudios.Remove(estudioBuscado);
+
+            ctx.SaveChanges();
         }
 
         public List<Estudio> Listar()
