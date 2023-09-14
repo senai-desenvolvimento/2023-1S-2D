@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace webapi.inlock.codeFirst.manha.Domains
 {
     [Table("Usuario")]
+    [Index(nameof(Email), IsUnique=true)]//Cria um índice único para
     public class Usuario
     {
         [Key]
@@ -13,7 +15,7 @@ namespace webapi.inlock.codeFirst.manha.Domains
         [Required(ErrorMessage ="Email obrigatório")]
         public string? Email { get; set; }
 
-        [Column(TypeName ="VARCHAR(100)")]
+        [Column(TypeName ="VARCHAR(200)")]
         [Required(ErrorMessage ="Senha obrigatória!")]
         [StringLength(20, MinimumLength =6, ErrorMessage ="Senha de 6 á 20 caracteres")]
         public string? Senha { get; set; }
@@ -21,7 +23,7 @@ namespace webapi.inlock.codeFirst.manha.Domains
 
         //Referência da Chave estrangeira (Tabela de TiposUsuario)
 
-        [Required(ErrorMessage ="Tipo do usuário obrigatório")]
+        //[Required(ErrorMessage ="Tipo do usuário obrigatório")]
         public Guid IdTipoUsuario { get; set; }
 
 
