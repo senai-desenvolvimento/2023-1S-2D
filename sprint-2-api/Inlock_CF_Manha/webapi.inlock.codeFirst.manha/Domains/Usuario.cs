@@ -17,7 +17,7 @@ namespace webapi.inlock.codeFirst.manha.Domains
 
         [Column(TypeName ="VARCHAR(200)")]
         [Required(ErrorMessage ="Senha obrigatória!")]
-        [StringLength(20, MinimumLength =6, ErrorMessage ="Senha de 6 á 20 caracteres")]
+        [StringLength(200, MinimumLength =6, ErrorMessage ="Senha de 6 á 20 caracteres")]
         public string? Senha { get; set; }
 
 

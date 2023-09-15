@@ -24,7 +24,15 @@ namespace webapi.inlock.codeFirst.manha.Repositories
 
         public Usuario BuscarUsuario(string email, string senha)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public void Cadastrar(Usuario usuario)

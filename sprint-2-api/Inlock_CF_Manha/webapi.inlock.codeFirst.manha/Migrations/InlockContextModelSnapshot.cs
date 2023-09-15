@@ -97,7 +97,7 @@ namespace webapi.inlock.codeFirst.manha.Migrations
 
                     b.Property<string>("Senha")
                         .IsRequired()
-                        .HasMaxLength(20)
+                        .HasMaxLength(200)
                         .HasColumnType("VARCHAR(200)");
 
                     b.HasKey("IdUsuario");
