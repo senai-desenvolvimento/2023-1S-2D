@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\webapi.event+.tarde.props" />
+</Project>

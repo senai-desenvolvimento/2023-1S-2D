@@ -32,20 +32,5 @@ namespace webapi.inlock.codeFirst.tarde.Controllers
                 throw;
             }
         }
-
-        //falta implementar o endpoint
-        [HttpGet]
-        public IActionResult GetByEmailAndPassword() 
-        {
-            try
-            {
-               
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
     }
 }

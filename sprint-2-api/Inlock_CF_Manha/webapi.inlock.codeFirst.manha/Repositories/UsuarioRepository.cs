@@ -26,11 +26,21 @@ namespace webapi.inlock.codeFirst.manha.Repositories
         {
             try
             {
+                Usuario usuarioBuscado = ctx.Usuario.FirstOrDefault(u => u.Email == email)!;
 
+                if (usuarioBuscado != null)
+                {
+                    bool confere = Criptografia.CompararHash(senha, usuarioBuscado.Senha!);
+
+                    if (confere)
+                    {
+                        return usuarioBuscado;
+                    }
+                }
+                return null!;
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
