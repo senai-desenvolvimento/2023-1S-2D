@@ -1,0 +1,62 @@
+CREATE DATABASE [Event+_v2];
+GO
+
+USE [Event+_v2];
+GO
+
+CREATE TABLE TiposUsuarios
+(
+	IdTipoUsuario	INT PRIMARY KEY IDENTITY
+	,TituloTipoUsuario VARCHAR(200) UNIQUE NOT NULL
+);
+GO
+
+CREATE TABLE Usuarios
+(
+	IdUsuario INT PRIMARY KEY IDENTITY
+	,IdTipoUsuario INT FOREIGN KEY REFERENCES TiposUsuarios(IdTipoUsuario)
+	,NomeUsuario VARCHAR(200) NOT NULL
+	,Email VARCHAR(200) UNIQUE NOT NULL
+	,Senha VARCHAR(200) NOT NULL
+);
+
+CREATE TABLE Instituicoes
+(
+	IdInstituicao INT PRIMARY KEY IDENTITY
+	,Cnpj CHAR(14) UNIQUE NOT NULL
+	,Endereco VARCHAR(200) UNIQUE NOT NULL
+	,NomeFantasia VARCHAR(200) UNIQUE NOT NULL
+);
+
+CREATE TABLE TiposEventos
+(
+	IdTipoEvento INT PRIMARY KEY IDENTITY
+	,TituloTipoEvento VARCHAR(200) UNIQUE NOT NULL
+);
+
+CREATE TABLE Eventos
+(
+	IdEvento INT PRIMARY KEY IDENTITY
+	,IdTipoEvento INT FOREIGN KEY REFERENCES TiposEventos(IdTipoEvento)
+	,IdInstituicao INT FOREIGN KEY REFERENCES Instituicoes(IdInstituicao)
+	,DataEvento DATETIME2 NOT NULL
+	,NomeEvento VARCHAR(200) UNIQUE NOT NULL
+	,Descricao VARCHAR(200) UNIQUE NOT NULL
+);
+
+CREATE TABLE PresencasEvento
+(
+	IdPresenca INT PRIMARY KEY IDENTITY
+	,IdUsuario INT FOREIGN KEY REFERENCES Usuarios(IdUsuario)
+	,IdEvento INT FOREIGN KEY REFERENCES Eventos(IdEvento)
+	,Situacao BIT NOT NULL
+);
+
+CREATE TABLE ComentariosEvento
+(
+	IdComentarioEvento INT PRIMARY KEY IDENTITY
+	,IdUsuario INT FOREIGN KEY REFERENCES Usuarios(IdUsuario)
+	,IdEvento INT FOREIGN KEY REFERENCES Eventos(IdEvento)
+	,Descricao VARCHAR(100) NOT NULL
+	,Exibe BIT NOT NULL
+)
