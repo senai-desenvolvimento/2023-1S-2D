@@ -30,6 +30,8 @@ namespace webapi.event_.Contexts
         {
             optionsBuilder.UseSqlServer("Server=DESKTOP-B541VSR; Database=event+; Integrated Security=True; TrustServerCertificate=true;");
             base.OnConfiguring(optionsBuilder);
+
+            //optionsBuilder.UseSqlServer("Server=localhost; Database=event+; User Id = sa; Pwd = 999999; TrustServerCertificate=true;");
         }
     }
 }

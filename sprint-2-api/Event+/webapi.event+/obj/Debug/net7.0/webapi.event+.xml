@@ -4,6 +4,11 @@
         <name>webapi.event+</name>
     </assembly>
     <members>
+        <member name="T:webapi.event_.Contexts.Event_Context">
+            <summary>
+            Classe de contexto que faz referências as tabelas e define string de conexão
+            </summary>
+        </member>
         <member name="M:webapi.event_.Contexts.Event_Context.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
             <summary>
             Define as opções de construção do banco
