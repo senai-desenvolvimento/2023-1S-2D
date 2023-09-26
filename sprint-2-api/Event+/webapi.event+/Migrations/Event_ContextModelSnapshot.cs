@@ -103,6 +103,9 @@ namespace webapi.event_.Migrations
 
                     b.HasKey("IdInstituicao");
 
+                    b.HasIndex("CNPJ")
+                        .IsUnique();
+
                     b.ToTable("Instituicao");
                 });
 
@@ -183,6 +186,9 @@ namespace webapi.event_.Migrations
                         .HasColumnType("VARCHAR(60)");
 
                     b.HasKey("IdUsuario");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.HasIndex("IdTipoUsuario");
 

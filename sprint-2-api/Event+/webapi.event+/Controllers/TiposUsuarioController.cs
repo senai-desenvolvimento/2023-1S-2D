@@ -66,7 +66,7 @@ namespace webapi.event_.Controllers
             {
                 _tiposUsuarioRepository.Atualizar(id, tipoUsuario);
 
-                return NoContent();
+                return StatusCode(204,tipoUsuario);
             }
             catch (Exception e)
             {
