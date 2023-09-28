@@ -66,7 +66,7 @@ namespace webapi.event_.Controllers
             {
                 _eventoRepository.Atualizar(id, evento);
 
-                return StatusCode(204,evento);
+                return NoContent();
             }
             catch (Exception e)
             {

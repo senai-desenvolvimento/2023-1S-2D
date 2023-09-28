@@ -1,6 +1,4 @@
-﻿using BCrypt.Net;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.EntityFrameworkCore;
 using webapi.event_.Domains;
 
 namespace webapi.event_.Contexts
@@ -18,7 +16,7 @@ namespace webapi.event_.Contexts
 
         public DbSet<Evento> Evento { get; set; }
 
-        public DbSet<ComentariosEvento> ComentariosEvento { get; set; }
+        public DbSet<ComentariosEvento> ComentariosEvento{ get; set; }
 
         public DbSet<Instituicao> Instituicao { get; set; }
 
@@ -30,17 +28,8 @@ namespace webapi.event_.Contexts
         /// <param name="optionsBuilder">Objeto com as configurações definidas</param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //string conexão local Carlos
-            //optionsBuilder.UseSqlServer("Server=DESKTOP-B541VSR; Database=event+; Integrated Security=True; TrustServerCertificate=true;");
-            //base.OnConfiguring(optionsBuilder);
-
-            //string conexão local Eduardo
-            //optionsBuilder.UseSqlServer("Server=localhost; Database=event+; User Id = sa; Pwd = 999999; TrustServerCertificate=true;");
-
-            //string conexão banco azure
-            optionsBuilder.UseSqlServer("Server = tcp:eventbd.database.windows.net,1433; Initial Catalog = eventbd; Encrypt = True; TrustServerCertificate = true; Connection Timeout = 30; Authentication = \"Active Directory Default\";");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-B541VSR; Database=event+; Integrated Security=True; TrustServerCertificate=true;");
             base.OnConfiguring(optionsBuilder);
-
         }
     }
 }

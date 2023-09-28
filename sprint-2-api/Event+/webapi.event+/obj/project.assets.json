@@ -11871,11 +11871,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\carlos.roque\\Desktop\\2023-1S-2D\\sprint-2-api\\Event+\\webapi.event+\\webapi.event+.csproj",
+      "projectUniqueName": "C:\\Users\\carlos.roque\\Desktop\\Event+\\webapi.event+\\webapi.event+.csproj",
       "projectName": "webapi.event+",
-      "projectPath": "C:\\Users\\carlos.roque\\Desktop\\2023-1S-2D\\sprint-2-api\\Event+\\webapi.event+\\webapi.event+.csproj",
+      "projectPath": "C:\\Users\\carlos.roque\\Desktop\\Event+\\webapi.event+\\webapi.event+.csproj",
       "packagesPath": "C:\\Users\\carlos.roque\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\carlos.roque\\Desktop\\2023-1S-2D\\sprint-2-api\\Event+\\webapi.event+\\obj\\",
+      "outputPath": "C:\\Users\\carlos.roque\\Desktop\\Event+\\webapi.event+\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\carlos.roque\\AppData\\Roaming\\NuGet\\NuGet.Config",

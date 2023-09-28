@@ -21,7 +21,6 @@ namespace webapi.inlock.Controllers
         /// <summary>
         /// Cadastra um novo estúdio
         /// </summary>
-        [Authorize(Roles = "2")]
         [HttpPost("Cadastrar")]
         public IActionResult Post(EstudioDomain estudio)
         {
@@ -41,7 +40,6 @@ namespace webapi.inlock.Controllers
         /// <summary>
         /// Lista todos os estúdios cadastrados
         /// </summary>
-        [Authorize(Roles = "1,2")]
         [HttpGet("Listar")]
         public IActionResult Get()
         {
@@ -60,7 +58,6 @@ namespace webapi.inlock.Controllers
         /// <summary>
         /// Lista todos os estúdios cadastrados
         /// </summary>
-        //[Authorize(Roles = "1,2")]
         [HttpGet("ListarComJogos")]
         public IActionResult GetWithGamers()
         {

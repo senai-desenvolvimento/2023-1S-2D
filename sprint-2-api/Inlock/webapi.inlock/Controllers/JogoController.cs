@@ -21,7 +21,6 @@ namespace webapi.inlock.Controllers
         /// <summary>
         /// Cadastra um novo jogo 
         /// </summary>
-        [Authorize(Roles = "2")]
         [HttpPost("Cadastrar")]
         public IActionResult Post(JogoDomain jogo)
         {
@@ -40,7 +39,6 @@ namespace webapi.inlock.Controllers
         /// <summary>
         /// Lista todos os jogos cadastrados 
         /// </summary>
-        [Authorize(Roles = "1, 2")]
         [HttpGet("Listar")]
         public IActionResult Get()
         {

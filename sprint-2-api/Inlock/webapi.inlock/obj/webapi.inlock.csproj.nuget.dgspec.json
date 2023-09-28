@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carlos.roque\\Desktop\\Inlock\\webapi.inlock\\webapi.inlock.csproj": {}
+    "C:\\Users\\carlos.roque\\Desktop\\2023-1S-2D\\sprint-2-api\\Inlock\\webapi.inlock\\webapi.inlock.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carlos.roque\\Desktop\\Inlock\\webapi.inlock\\webapi.inlock.csproj": {
+    "C:\\Users\\carlos.roque\\Desktop\\2023-1S-2D\\sprint-2-api\\Inlock\\webapi.inlock\\webapi.inlock.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carlos.roque\\Desktop\\Inlock\\webapi.inlock\\webapi.inlock.csproj",
+        "projectUniqueName": "C:\\Users\\carlos.roque\\Desktop\\2023-1S-2D\\sprint-2-api\\Inlock\\webapi.inlock\\webapi.inlock.csproj",
         "projectName": "webapi.inlock",
-        "projectPath": "C:\\Users\\carlos.roque\\Desktop\\Inlock\\webapi.inlock\\webapi.inlock.csproj",
+        "projectPath": "C:\\Users\\carlos.roque\\Desktop\\2023-1S-2D\\sprint-2-api\\Inlock\\webapi.inlock\\webapi.inlock.csproj",
         "packagesPath": "C:\\Users\\carlos.roque\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carlos.roque\\Desktop\\Inlock\\webapi.inlock\\obj\\",
+        "outputPath": "C:\\Users\\carlos.roque\\Desktop\\2023-1S-2D\\sprint-2-api\\Inlock\\webapi.inlock\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\carlos.roque\\AppData\\Roaming\\NuGet\\NuGet.Config",

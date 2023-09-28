@@ -51,7 +51,7 @@ namespace webapi.event_.Controllers
             {
                 _instituicaoRepository.Cadastrar(instituicao);
 
-                return StatusCode(201,instituicao);
+                return StatusCode(201);
             }
             catch (Exception e)
             {
@@ -66,7 +66,7 @@ namespace webapi.event_.Controllers
             {
                 _instituicaoRepository.Atualizar(id, instituicao);
 
-                return StatusCode(204,instituicao);
+                return NoContent();
             }
             catch (Exception e)
             {
