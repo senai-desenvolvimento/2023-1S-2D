@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora IMC</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <h1>Calculadora de IMC</h1>
+        <section>
+            <h2>Cadastro de informações</h2>
+            <form method="post" onsubmit="calcular(event)">
+                <div class="campo-form">
+                    <label for="nome">Nome: </label>
+                    <input type="text" name="campo-nome" id="nome" placeholder="Insira seu nome completo">
+                </div>
+
+                <div class="campo-form">
+                    <label for="altura">Altura: </label>
+                    <input type="number" name="campo-altura" id="altura" step="0.01" min="0.1" max="10"
+                        placeholder="Insira sua altura em metros Ex.: 1.68">
+                </div>
+
+                <div class="campo-form">
+                    <label for="peso">Peso: </label>
+                    <input type="number" name="peso" id="peso" step="0.01" min="0.1" max="500"
+                        placeholder="Insira seu peso em Kg. Ex: 60">
+                </div>
+
+                <div class="conjunto-botoes">
+                    <button type="reset">Limpar Formulário</button>
+                    <button type="submit">Calcular</button>
+                </div>
+
+            </form>
+        </section>
+        <section>
+            <h2>Usuários Cadastrados</h2>
+            <table>
+                <caption>Tabela de Usuários</caption>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Altura</th>
+                        <th>Peso</th>
+                        <th>Valor do IMC</th>
+                        <th>Classificação de IMC</th>
+                        <th>Data de cadastro</th>
+                    </tr>
+                </thead>
+                <tbody id="corpo-tabela">
+                    <!-- Exemplo de Registro da tabela -->
+                    <!-- <tr>
+                        <td data-cell="nome">Thiago Nascimento</td>
+                        <td data-cell="altura">1.78</td>
+                        <td data-cell="peso">67</td>
+                        <td data-cell="valor do IMC">21.1</td>
+                        <td data-cell="classificação do IMC">Normal</td>
+                        <td data-cell="data de cadastro">19/06/2023 21:27</td>
+                    </tr>
+                    <tr>
+                        <td data-cell="nome">Thiago Nascimento</td>
+                        <td data-cell="altura">1.78</td>
+                        <td data-cell="peso">67</td>
+                        <td data-cell="valor do IMC">21.1</td>
+                        <td data-cell="classificação do IMC">Normal</td>
+                        <td data-cell="data de cadastro">19/06/2023 21:27</td>
+                    </tr>
+                    <tr>
+                        <td data-cell="nome">Thiago Nascimento</td>
+                        <td data-cell="altura">1.78</td>
+                        <td data-cell="peso">67</td>
+                        <td data-cell="valor do IMC">21.1</td>
+                        <td data-cell="classificação do IMC">Normal</td>
+                        <td data-cell="data de cadastro">19/06/2023 21:27</td>
+                    </tr> -->
+                </tbody>
+            </table>
+            <button class="botao-tabela" onclick="deletarRegistros()">Limpar Registros</button>
+        </section>
+    </main>
+</body>
+
+</html>

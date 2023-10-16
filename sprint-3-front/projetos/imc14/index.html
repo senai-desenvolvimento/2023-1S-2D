@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Calculadora de IMC</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <h1>Calcule seu IMC!</h1>
+    <form onsubmit="calcular(event)">
+      <fieldset>
+        <legend>Cadastro</legend>
+
+        <input value="Edu" type="text" id="nome" placeholder="    Nome" />
+        <input
+          value="1.67"
+          type="number"
+          step="0.01"
+          id="altura"
+          placeholder="    Altura"
+        />
+        <input
+          value="89"
+          type="number"
+          id="peso"
+          placeholder="    Peso em Kg"
+        />
+        <button type="submit">Calcular</button>
+        <button type="reset">Eduardo</button>
+      </fieldset>
+    </form>
+    <section>
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Altura</th>
+            <th>Peso</th>
+            <th>Imc</th>
+            <th>Situação</th>
+          </tr>
+        </thead>
+
+        <tbody id="cadastro"></tbody>
+      </table>
+    </section>
+
+    <div id="teste"></div>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>

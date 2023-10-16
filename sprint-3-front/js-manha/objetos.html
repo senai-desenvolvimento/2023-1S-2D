@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // objeto literal
+        let eduardo = {
+            nome : "Eduardo",
+            sobrenome: "Mendes da Costa",
+            idade: 41
+        };
+
+        eduardo.cpf = '123546079'
+
+        // objeto tradicional
+        let carlos = new Object();
+        carlos.nome = "Carlos";
+        carlos.sobrenome = 'Roque'
+
+        console.log(eduardo.nome);
+        console.log(carlos.nome);
+
+        // inserir as duas pessoas no array 
+        //exibir os seus nomes com foreach ou for
+
+        let pessoas = [];
+        pessoas.push(eduardo);
+        pessoas.push(carlos);
+
+        pessoas.forEach(function(p){
+            console.log(`Nome: ${p.nome}`);
+        })
+    </script>
+</body>
+</html>
