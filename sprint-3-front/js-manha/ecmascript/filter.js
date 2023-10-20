@@ -14,13 +14,6 @@ const doisDuzentos = numeros.filter((n) => {
 console.log(doisDuzentos);
 
 
-
-
-
-
-
-
-
 const comentarios = [
     {comentario: "bla bla bla", exibe: true},
     {comentario: "Evento é uma merda", exibe: false},

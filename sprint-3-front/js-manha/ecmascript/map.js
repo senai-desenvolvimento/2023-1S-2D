@@ -21,4 +21,4 @@ nomesCompletos.forEach( nc => { console.log(nc);});
 // crie um terceiro array de nomesCompletos
 //ao final exiba os nomes completos no console com o foreach
 //é necessário contem pelo menos 5 nomes
-// utilize arrow funcitions como calback functions
+

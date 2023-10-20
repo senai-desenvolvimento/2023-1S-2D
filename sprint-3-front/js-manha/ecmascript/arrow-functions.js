@@ -1,24 +1,19 @@
+const convidados = [
+  "Coral",
+  "Anna",
+  "Demétrio",
+  "Vinícius",
+  "Lacerda",
+  "Evelyn",
+  "Luiz",
+];
 
-
-
-
-
-// const mesa = [
-//   "Coral",
-//   "Anna",
-//   "Demétrio",
-//   "Vinícius",
-//   "Lacerda",
-//   "Evelyn",
-//   "Luiz",
-// ];
-
-//calback funcitons
-// mesa.forEach(
-//     function Carlos(cadaPessoa) {
-//         console.log('Bom dia ' + cadaPessoa);
-//     }
-// );
+// calback funcitons
+convidados.forEach(
+    function Carlos(cadaPessoa) {
+        console.log('Bom dia ' + cadaPessoa);
+    }
+);
 
 // função anônima
 // mesa.forEach(function (cadaPessoa) {
@@ -30,6 +25,12 @@
 //   console.log("Bom dia " + cadaPessoa);
 // });
 
+
+const dobro =  function(x) {
+    return x * 2;
+};
+
+console.log( dobro(5) );//10
 
 // const dobro =  (x) => {
 //     return x * 2;

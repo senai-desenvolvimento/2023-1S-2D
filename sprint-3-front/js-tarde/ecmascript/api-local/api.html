@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="chamarApi()">Chamar API</button>
+
+    <script>
+      // //get
+      // fetch("https://viacep.com.br/ws/09510200/jsonX/")
+      // .then( (retorno) => {
+      //     // console.log(retorno);
+      //     console.log("Deu bom na api");
+      //     console.log("EDUARDO OOOOOOOOOOOOOOOO");
+      // })//resolvida
+      // .catch( (erro) => {
+      //     console.log("Deu ruim na api");
+      //     console.log("EDUARDO OOOOOOOOOOOOOOOO");
+      // } )//rejeitada
+
+      async function chamarApi() {
+       const url = "https://viacep.com.br/ws/09510200/json/";
+        
+       try {//resolvida ou  fullfiled
+          const promise = await fetch(url);
+          const endereco = await promise.json();
+
+          console.log(endereco);
+        } catch (error) {//rejeitada
+            console.log("Deu ruim na api");
+        }
+      }
+
+
+    </script>
+  </body>
+</html>

@@ -12,10 +12,21 @@ const produtos = [
     {produto: "Jaqueta de Couro", preco: 700.01},
 ];
 
-const vendedor = "Eduardo costa";
+const vendedor = "Eduardo Costa";
+const bonus = 100;
 
 let comissao = produtos.reduce((vlInicial, oP)=> { 
     return vlInicial + (oP.preco * 0.05);
- }, 0);
+ }, bonus);
 
  console.log(`Comissão de ${vendedor} neste mês:  R$${comissao.toFixed(2)}`);
+
+
+
+const objVendedor = {
+    vendedor,
+    comissao,
+    idade: 41
+}
+console.log(objVendedor);
+

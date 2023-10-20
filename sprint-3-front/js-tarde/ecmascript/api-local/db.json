@@ -1,0 +1,12 @@
+{
+  "imc": [
+    {
+      "nome": "Miguelito",
+      "altura": "1.99",
+      "peso": 87,
+      "situacao": "Magrão",
+      "imc": 19,
+      "id": 2
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "contatos" : [
+    
+  ],
+
+
+  "TipoEventos": [
+    {
+      "id": 1,
+      "titulo": "SQL Server",
+      "instituicao": "SENAI",
+      "dataEvento": "05/11/2023"
+    },
+    {
+      "titulo": "JavaScript",
+      "instituicao": "SENAI",
+      "dataEvento": "06/11/2023",
+      "id": 2
+    },
+    {
+      "titulo": "JavaScript",
+      "instituicao": "SENAI",
+      "dataEvento": "06/11/2023",
+      "id": 3
+    }
+  ]
+}

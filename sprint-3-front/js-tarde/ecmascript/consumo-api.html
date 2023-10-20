@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="cep">CEP</label>
+      <input
+        type="number"
+        placeholder="digite o cep"
+        id="cep"
+        onblur="chamarApi()"
+        autocomplete="off"
+      />
+      <span id="not-found"></span>
+      <br /><br />
+
+      <label for="endereco">Endereço</label>
+      <input type="text" placeholder=" ... " id="endereco" />
+      <br /><br />
+
+      <label for="bairro">Bairro</label>
+      <input type="text" placeholder=" ... " id="bairro" />
+      <br /><br />
+
+      <label for="cidade">Cidade</label>
+      <input type="text" placeholder=" ... " id="cidade" />
+      <br /><br />
+
+      <label for="estado">Estado</label>
+      <input type="text" placeholder=" ... " id="estado" />
+      <br /><br />
+    </form>
+
+    <script>
+      async function chamarApi() {
+        const cep = document.getElementById("cep").value;
+
+        const url = `https://viacep.com.br/ws/${cep}/json/`;
+
+        try {
+          //resolvida ou  fullfiled
+          const promise = await fetch(url);
+          const endereco = await promise.json();
+
+          //exibir dos dados no formulário
+          exibirEndereco(endereco);
+
+          document.getElementById("not-found").innerText = "";
+
+          // console.log(endereco);
+        } catch (error) {
+          //rejeitada
+          console.log("Deu ruim na api");
+
+          //informa o usuário
+          limparEndereco();
+          document.getElementById("not-found").innerText = "Cep Inválido";
+        }
+      }
+
+      function limparEndereco() {
+        document.getElementById("endereco").value = "";
+        document.getElementById("bairro").value = "";
+        document.getElementById("cidade").value = "";
+        document.getElementById("estado").value = "";
+      }
+
+      function exibirEndereco(endereco) {
+        document.getElementById("endereco").value = endereco.logradouro;
+        document.getElementById("bairro").value = endereco.bairro;
+        document.getElementById("cidade").value = endereco.localidade;
+        document.getElementById("estado").value = endereco.uf;
+      }
+    </script>
+  </body>
+</html>
