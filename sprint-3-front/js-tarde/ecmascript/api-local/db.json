@@ -1,11 +1,22 @@
 {
-  "imc": [
+  "contatos": [
     {
-      "nome": "Miguelito",
-      "altura": "1.99",
-      "peso": 87,
-      "situacao": "Magrão",
-      "imc": 19,
+      "cep": "09041310",
+      "endereco": "Rua Independência",
+      "bairro": "Jardim Bela Vista",
+      "cidade": "Santo André",
+      "estado": "SP",
+      "id": 1
+    },
+    {
+      "nome": "Eduardo",
+      "telefone": "1112345676",
+      "cep": "07181230",
+      "endereco": "Avenida Sargento da Aeronáutica Teruo Asaeda",
+      "numero": "55",
+      "bairro": "Cidade Jardim Cumbica",
+      "cidade": "Guarulhos",
+      "estado": "SP",
       "id": 2
     }
   ]

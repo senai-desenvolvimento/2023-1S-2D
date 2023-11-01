@@ -1,9 +1,77 @@
 {
-  "contatos" : [
-    
+  "contatos": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "nome": "Eduardo",
+      "email": "edu@edu",
+      "cep": "3",
+      "endereco": "Rua dos Empresários",
+      "numero": "555",
+      "cidade": "São Paulo",
+      "estado": "sp",
+      "id": 3
+    }
   ],
-
-
+  "myceps": [
+    {
+      "id": 1,
+      "cep": "07170350",
+      "logradouro": "Rua lá de Casa",
+      "localidade": "Guarulhos",
+      "uf": "sp"
+    },
+    {
+      "id": 2,
+      "cep": "07181230",
+      "logradouro": "Rua do Trabalho",
+      "localidade": "São Caetano do Sul",
+      "uf": "sp"
+    },
+    {
+      "id": 3,
+      "cep": "01234567",
+      "logradouro": "Rua dos Empresários",
+      "localidade": "São Paulo",
+      "uf": "sp"
+    },
+    {
+      "id": 4,
+      "cep": "87654321",
+      "logradouro": "Rua dos Empregados",
+      "localidade": "Mogi das Cruzes",
+      "uf": "sp"
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "nome": "qwer",
+      "email": "rw@asd",
+      "cep": "2",
+      "endereco": "Rua do Trabalho",
+      "numero": "2",
+      "cidade": "São Caetano do Sul",
+      "estado": "sp",
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 10
+    }
+  ],
   "TipoEventos": [
     {
       "id": 1,

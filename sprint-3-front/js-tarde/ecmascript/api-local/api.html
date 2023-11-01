@@ -6,7 +6,44 @@
     <title>Document</title>
   </head>
   <body>
-    <button onclick="chamarApi()">Chamar API</button>
+    <form>
+      <label for="cep">CEP</label>
+      <input
+        type="number"
+        placeholder="digite o cep"
+        id="cep"
+        onblur="chamarApi()"
+      />
+      <br /><br />
+
+      <label for="endereco">Endereço</label>
+      <input type="text" placeholder=" ... " id="endereco" />
+      <br /><br />
+
+      <label for="bairro">Bairro</label>
+      <input type="text" placeholder=" ... " id="bairro" />
+      <br /><br />
+
+      <label for="cidade">Cidade</label>
+      <input type="text" placeholder=" ... " id="cidade" />
+      <br /><br />
+
+      <label for="estado">Estado</label>
+      <input type="text" placeholder=" ... " id="estado" />
+      <br /><br />
+    </form>
+
+
+
+
+    <script>
+      function chamarApi() {
+        // const cep = 
+      }
+    </script>
+
+
+
 
     <script>
       // //get
@@ -21,18 +58,18 @@
       //     console.log("EDUARDO OOOOOOOOOOOOOOOO");
       // } )//rejeitada
 
-      async function chamarApi() {
-       const url = "https://viacep.com.br/ws/09510200/json/";
+      // async function chamarApi() {
+      //  const url = "https://viacep.com.br/ws/09510200/json/";
         
-       try {//resolvida ou  fullfiled
-          const promise = await fetch(url);
-          const endereco = await promise.json();
+      //  try {//resolvida ou  fullfiled
+      //     const promise = await fetch(url);
+      //     const endereco = await promise.json();
 
-          console.log(endereco);
-        } catch (error) {//rejeitada
-            console.log("Deu ruim na api");
-        }
-      }
+      //     console.log(endereco);
+      //   } catch (error) {//rejeitada
+      //       console.log("Deu ruim na api");
+      //   }
+      // }
 
 
     </script>

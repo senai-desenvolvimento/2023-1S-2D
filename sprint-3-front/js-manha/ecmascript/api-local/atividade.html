@@ -1,0 +1,61 @@
+<!-- 
+    criar um cadastro de frutas que exiba as frutas cadastradas em uma lista ul.
+
+    * O programa deverá ter um formulário web.
+    * O programa deverá utilizar arrays
+    * A lista deverá aparecer em ordem alfabética
+        - Método para ordenar o array: array.sort()
+    * Você deverá exibir os dados com foreach e utilizar arrow functions
+
+    ** Desafio: Salvar a lista de frutas na api local com json-server
+dados = {
+    x: 500,
+    y: "Eduardo"
+}
+    fetch(url, {
+        headers: "{'Content-type: application/json'}"
+        data: JSON.stringfy(dados)
+    })
+ -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form onsubmit="cadastrar(event)">
+      <label for="fruta">Fruta</label>
+      <input type="text" id="fruta" placeholder="digite a fruta" />
+
+      <button>Cadastrar</button>
+    </form>
+    <div id="lista-frutas"></div>
+    <script>
+      const arrFrutas = []; //array global
+
+      function cadastrar(e) {
+        e.preventDefault(); //captura o submit do formulário
+
+        const fruta = document.getElementById("fruta").value;
+        fruta.trim();//limpa os espaços das extremidades
+        fruta.toLowerCase();//tudo pra minúsculo
+
+
+        arrFrutas.push(fruta); //guarda no array
+        arrFrutas.sort(); //ordena o array
+        let template = "<ul>";
+        
+        arrFrutas.forEach((fruta) => {
+            template += `<li>${fruta}</li>`;
+        });
+        
+        template += "</ul>";
+
+        document.getElementById("lista-frutas").innerHTML = template;
+      }
+    </script>
+  </body>
+</html>
