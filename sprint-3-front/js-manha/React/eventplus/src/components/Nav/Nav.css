@@ -1,0 +1,126 @@
+/* Smartphone */
+@font-face {
+    font-family: Poppins-Thin;
+    src: url(../../assets/fonts/Poppins/Poppins-Thin.ttf);
+}
+
+@font-face {
+    font-family: Poppins-Regular;
+    src: url(../../assets/fonts/Poppins/Poppins-Regular.ttf);
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: -91vw;
+
+    width: 90vw;
+    height: 100vh;
+    padding: 15px 0 15px 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    opacity: 0;
+    background-color: #B51D44;
+    transition: left .4s, opacity .5s;
+}
+
+.navbar__close {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+
+    font-family: Poppins-Thin;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+.exibeNavbar {
+    left: 0 !important;
+    opacity: 1;
+}
+
+/* link do logotipo */
+.eventlogo {
+    width: 90%;
+    margin-bottom: 80px;
+    /* border: 1px solid white; */
+}
+
+/* imagem do logotipo */
+.eventlogo__logo-image {
+    width: 132px;
+}
+
+.navbar__items-box {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    /* border: 1px solid blue; */
+}
+/* links da navbar */
+.navbar__item {
+    width: auto;
+    margin-bottom: 30px;
+    padding: 15px 15px 15px 2px;
+
+    font-family: Poppins-Regular;
+    font-size: 1rem;
+    color: var(--color-white);
+    text-decoration: none;
+
+    border-bottom: 2px solid #201849;
+}
+
+
+/* Desktop */
+@media screen and (min-width: 992px) {
+    .navbar {
+        position: static;
+        width: 70%;
+        height: 85px;
+        padding: 0;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        opacity: 1;
+
+        background-color: transparent;
+        /* border: 2px solid red; */
+    }
+
+    .eventlogo {
+        width: auto;
+        margin: 0;
+        /* margin-right: 100px; */
+        /* border: 1px solid red; */
+    }
+    
+    .eventlogo__logo-image {
+        width: auto;
+        height: 20px;
+    }
+
+    .navbar__items-box {
+        height: auto;
+        width: 60%;
+        flex-direction: row;
+        justify-content: space-between;
+    
+        /* border: 1px solid blue; */
+    }
+    .navbar__item {
+        padding: 0;
+        margin: 0;
+        font-size: 0.875rem;
+        color: var(--color-dark-blue);
+        border: none;
+    }
+}

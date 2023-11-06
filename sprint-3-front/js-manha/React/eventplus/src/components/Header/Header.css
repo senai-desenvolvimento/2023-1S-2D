@@ -1,0 +1,31 @@
+.headerpage {
+    height: 55px;
+    padding: 20px 0 ;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+    /* background-color: red; */
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    /* background-color: green ; */
+}
+
+.headerpage__menubar {
+    width: 18px;
+}
+
+
+/* Desktop */
+@media screen and (min-width: 992px) {
+    .headerpage__menubar {
+        display: none;
+    }
+
+    .headerpage {
+        height: 85px;
+        padding: 0;
+    }
+}
