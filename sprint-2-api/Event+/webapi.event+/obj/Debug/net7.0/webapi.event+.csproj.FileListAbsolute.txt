@@ -514,6 +514,6 @@ C:\Users\carlos.roque\Desktop\api_event\Event+\webapi.event+\obj\Debug\net7.0\we
 C:\Users\carlos.roque\Desktop\api_event\Event+\webapi.event+\obj\Debug\net7.0\webapi.event+.pdb
 C:\Users\carlos.roque\Desktop\api_event\Event+\webapi.event+\obj\Debug\net7.0\webapi.event+.genruntimeconfig.cache
 C:\Users\carlos.roque\Desktop\api_event\Event+\webapi.event+\obj\Debug\net7.0\ref\webapi.event+.dll
-C:\Users\carlos.roque\Desktop\Event+\webapi.event+\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
-C:\Users\carlos.roque\Desktop\Event+\webapi.event+\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
-C:\Users\carlos.roque\Desktop\Event+\webapi.event+\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
+C:\Users\carlos.roque\Desktop\api_event\Event+\webapi.event+\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\carlos.roque\Desktop\api_event\Event+\webapi.event+\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\carlos.roque\Desktop\api_event\Event+\webapi.event+\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll

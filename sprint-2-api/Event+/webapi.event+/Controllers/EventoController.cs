@@ -31,6 +31,19 @@ namespace webapi.event_.Controllers
             }
         }
 
+        [HttpGet("ListarProximos")]
+        public IActionResult GetNextEvents()
+        {
+            try
+            {
+                return Ok(_eventoRepository.ListarProximos());
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {

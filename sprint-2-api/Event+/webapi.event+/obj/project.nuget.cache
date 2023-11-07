@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IZHbWfWmWnbj6rJJnHk/33l5WyJ+c1ohoxMUOQ7HYquJhDMy69fAaQzcgx8h6pADGO3iCdyLPDjw0p1JlFh0Ow==",
+  "dgSpecHash": "V2nMbNBZ5nfHP+8h+8VxxpS+aGrNDORWfZ/lQ+Ny/gFCaJuGxAfsc31EN2UwH4X1aDtMH+N4+1zOu7d+nQsPvA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\carlos.roque\\Desktop\\Event+\\webapi.event+\\webapi.event+.csproj",
+  "projectFilePath": "C:\\Users\\carlos.roque\\Desktop\\api_event\\Event+\\webapi.event+\\webapi.event+.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\carlos.roque\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\carlos.roque\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
