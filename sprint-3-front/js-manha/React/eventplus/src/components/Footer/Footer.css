@@ -1,14 +1,23 @@
-.footer {
-    width: 100%;
-    height: 60px;
-    display: flex;
-    justify-content: center;
+@font-face {
+    font-family: Poppins-Regular;
+    src: url(../../assets/fonts/Poppins/Poppins-Regular.ttf);
 }
 
-.footer__rights {
-    width: 100%;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1rem;
-    font-weight: bolder;
+.footer-page {
+    font-family: Poppins-Regular;
+    font-size: 0.875rem;
+    padding: 10px;
+    background-color: var(--color-white);
+}
+
+.footer-page__rights {
     text-align: center;
+    color: var(--text-color);
+}
+
+/* Desktop */
+@media screen and (min-width: 992px){
+    .footer-page {
+        font-size: 1rem;
+    }
 }

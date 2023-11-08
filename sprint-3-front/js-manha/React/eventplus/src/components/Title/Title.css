@@ -1,0 +1,23 @@
+@font-face {
+    font-family: Poppins-SemiBold;
+    src: url(../../assets/fonts/Poppins/Poppins-SemiBold.ttf);
+}
+
+.title {
+    width: 100%;
+    font-family: Poppins-SemiBold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    text-align: center;
+    align-self: flex-start; /* alinhamento isolado */
+    /* border: 1px solid red; */
+}
+
+.title__underscore {
+    display: block;
+    margin: 15px auto 0 auto;
+
+    width: 70%;
+    max-width: 180px;
+    border: 1px solid #B51D44;
+}

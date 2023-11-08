@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
-// import Header from '../../components/Header/Header';
+import Title from '../../components/Title/Title';
 
 const TestePage = () => {
   //variáveis do componente!
@@ -18,9 +18,8 @@ const TestePage = () => {
 
   return (
     <div>
-      {/* <Header /> */}
 
-      <h1>Página de Poc`s</h1>
+      <Title titleText="Teste Page" />
       <h2>Calculator</h2>
 
       <form onSubmit={handleCalcular} >

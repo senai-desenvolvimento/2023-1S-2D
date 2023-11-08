@@ -1,0 +1,52 @@
+@font-face {
+    font-family: Poppins-Regular;
+    src: url(../../assets/fonts/Poppins/Poppins-Regular.ttf);
+  }
+  
+  @font-face {
+    font-family: Poppins-Thin;
+    src: url(../../assets/fonts/Poppins/Poppins-Thin.ttf);
+  }
+  
+  .vision {
+    margin-top: 50px;
+    width: 100%;
+    height: 742px;
+    background-color: var(--color-red);
+  }
+  
+  .vision__box {
+    width: 100%;
+    height: 100%;
+    background-image: url(../../assets/images/vision-background-mobile.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .vision__title {
+    padding-top: 55px;
+  }
+  
+  .vision__text {
+    width: 80%;
+    margin: 90px auto;
+    text-align: center;
+    font-family: Poppins-Regular;
+    font-size: 1rem;
+    color: var(--color-white);
+  }
+  
+  @media screen and (min-width: 992px) {
+    .vision {
+      height: 458px;
+    }
+  
+    .vision__box {
+      background-image: url(../../assets/images/vision-background-desktop.png);
+    }
+  
+    .vision__text {
+      width: 75%;
+    }
+  }
