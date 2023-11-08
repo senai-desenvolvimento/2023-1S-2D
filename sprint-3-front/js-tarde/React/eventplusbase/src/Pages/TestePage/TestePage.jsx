@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Input from "../../Components/Input/Input";
 import Button from "../../Components/Button/Button";
 import Header from "../../Components/Header/Header";
+import Title from '../../Components/Title/Title';
 
 const TestePage = () => {
 
@@ -17,7 +18,7 @@ const TestePage = () => {
   return (
     <>
       <Header />
-      <h1>Página de Testes</h1>
+      <Title titleText={"Página de Testes"} />
       <h2>Calculator</h2>
       <p>Resultado: <strong>{total}</strong></p>
 

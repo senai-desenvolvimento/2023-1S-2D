@@ -1,0 +1,72 @@
+
+@font-face {
+    font-family: Poppins-Regular;
+    src: url(../../assets/fonts/Poppins/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: Poppins-Medium;
+    src: url(../../assets/fonts/Poppins/Poppins-Medium.ttf);
+}
+
+
+.tootip {
+    color: #fff !important;
+    background-color: #B51D44 !important;
+  }
+
+.event-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 250px;
+    height: 250px;
+    padding: 25px;
+    border: 1px solid var(--color-blue-red);
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.event-card__title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: Poppins-Medium;
+    font-size: 1rem;
+}
+
+.event-card__description {
+    font-family: Poppins-Regular;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.event-card__connect-link {
+    font-family: Poppins-Medium;
+    font-size: 1.125rem;
+    color: var(--color-red);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+@media screen and (min-width: 992px) {
+    .banner {
+      height: 720px;
+      background-image: url(../../assets/images//banner-desktop.png);
+    }
+  
+    .events-box {
+      
+      justify-content: flex-start;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 50px 0;
+    }
+
+    .event-card {
+      width: 220px;
+      height: 220px;
+    }
+  }
