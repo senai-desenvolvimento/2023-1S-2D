@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './HomePage.css'
 import MainContent from "../../Components/MainContent/MainContent";
 import Banner from "../../Components/Banner/Banner";
@@ -7,8 +7,29 @@ import ContactSection from "../../Components/ContactSection/ContactSection";
 import NextEvent from "../../Components/NextEvent/NextEvent";
 import Title from "../../Components/Title/Title";
 import Container from "../../Components/Container/Container";
+import api from "../../Services/Service";
 
 const HomePage = () => {
+  
+    useEffect(()=> {
+      // chamar a api
+      async function getProximosEventos() {
+        try {
+          const promise = await api.get("/Evento/ListarProximos");
+
+          setNextEvents(promise.data);
+
+        } catch (error) {
+          alert('Deu ruim na api');
+        }
+      }
+      getProximosEventos();
+        console.log("A HOME FOI MONTADA!!!!");
+    }, []);
+
+  // fake mock - api mocada
+  const [nextEvents, setNextEvents] = useState([]);
+
   return (
     <MainContent>
       <Banner />
@@ -20,12 +41,18 @@ const HomePage = () => {
 
           <div className="events-box">
             
-            <NextEvent
-              title={"Happy Hour Event"}
-              description={"Evento legal :)"}
-              eventDate={"14/11/2023"}
-              idEvento={"jqwelkhiyt98iuqr2"}
-            />
+            {
+              nextEvents.map((e) => {
+                return(
+                    <NextEvent
+                      title={e.nomeEvento}
+                      description={ e.descricao}
+                      eventDate={e.dataEvento}
+                      idEvento={e.idEvento}
+                    />
+                );
+              })
+            }
             
           </div>
         </Container>

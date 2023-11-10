@@ -1,12 +1,6 @@
 {
   "contatos": [
     {
-      "id": 1
-    },
-    {
-      "id": 2
-    },
-    {
       "nome": "Eduardo",
       "email": "edu@edu",
       "cep": "3",
@@ -15,6 +9,16 @@
       "cidade": "São Paulo",
       "estado": "sp",
       "id": 3
+    },
+    {
+      "nome": "Eduardo Mendes da Costa",
+      "email": "mendes.educosta@gmail.com",
+      "cep": "07170350",
+      "endereco": "Avenida Papa João Paulo I",
+      "numero": "10",
+      "cidade": "Guarulhos",
+      "estado": "SP",
+      "id": 4
     }
   ],
   "myceps": [

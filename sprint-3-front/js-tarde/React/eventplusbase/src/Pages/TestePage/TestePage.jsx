@@ -1,49 +1,23 @@
-import React, { useState } from "react";
-import Input from "../../Components/Input/Input";
-import Button from "../../Components/Button/Button";
-import Header from "../../Components/Header/Header";
-import Title from '../../Components/Title/Title';
+import React, { useEffect, useState } from 'react';
 
 const TestePage = () => {
 
-  const [total, setTotal] = useState();
-  const [n1, setN1] = useState();
-  const [n2, setN2] = useState();
-  
-  function handleCalcular(e) {//chamar no submit do form
-    e.preventDefault();
-    setTotal( parseFloat(n1) + parseFloat(n2) );
-  }
+  const [count, setCount] = useState(10);
+  const [calculation, setCalculation] = useState(10);//20
+
+  //roda quando o componente for carregado
+  // e também quando o count for atualizado
+  useEffect(() => {
+    setCalculation(count * 2);
+    console.log('Rodei');
+  },[count]);
 
   return (
-    <>
-      <Header />
-      <Title titleText={"Página de Testes"} />
-      <h2>Calculator</h2>
-      <p>Resultado: <strong>{total}</strong></p>
-
-      <form onSubmit={handleCalcular}>
-        <Input 
-          tipo="number"
-          id="numero1"
-          nome="numero1"
-          dicaCampo="Primeiro Número"
-          valor={n1}
-          fnAltera={setN1}
-          />
-        <Input
-          tipo="number"
-          id="numero2"
-          nome="numero2"
-          dicaCampo="Segundo Número"
-          valor={n2}
-          fnAltera={setN2}
-        />
-
-        <Button tipo="submit" textoBotao="Somar" />
-        <p>Resultado: <strong>{total}</strong></p>
-      </form>
-    </>
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount((c) => c + 1)}>+</button>
+      <p>Calculation: {calculation}</p>
+    </div>
   );
 };
 
