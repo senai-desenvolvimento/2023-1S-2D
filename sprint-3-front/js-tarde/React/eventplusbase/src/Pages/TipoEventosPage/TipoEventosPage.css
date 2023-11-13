@@ -1,0 +1,55 @@
+.cadastro-evento-section, .lista-eventos-section{
+    padding: 50px 0;
+ }
+
+.cadastro-evento__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    /* border: 1px solid red; */
+}
+
+.ftipo-evento {
+    width: 374px;
+    height: 255px;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /* border: 1px solid blue; */
+}
+
+
+/* lista de Eventos */
+.lista-eventos-section {
+    background-color: var(--color-red);
+    width: 100%;
+    padding-bottom: 50px;
+    overflow: auto;
+    /* height: 432px; */
+}
+
+
+.buttons-editbox {
+    width: 100%; 
+    display: flex; 
+    flex-direction: column;
+    gap: 20px;
+    justify-content: 'space-between';
+}
+
+@media screen and (min-width: 1200px){
+    
+    .cadastro-evento__box {
+        justify-content: space-between;
+        height: 540px;
+    }
+    
+    .ftipo-evento {margin-top: 0;}
+
+    .buttons-editbox {
+        flex-direction: row;
+    }
+}
