@@ -1,0 +1,16 @@
+
+.illustrator-box {
+    display: none;
+}
+
+@media screen and (min-width: 1200px) {
+
+    .illustrator-box {
+        display: flex;
+    }
+
+    .illustrator-box__image {
+        width: 100%;
+        max-width: 436px;
+    }
+}
