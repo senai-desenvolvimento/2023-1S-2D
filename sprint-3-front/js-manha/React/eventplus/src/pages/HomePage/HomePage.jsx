@@ -24,7 +24,7 @@ const HomePage = () => {
         console.log(dados);
         setNextEvents(dados); //atualiza o state
       } catch (error) {
-        alert("Deu ruim na api!");
+        console.log("Deu ruim na api!");
       }
     }
 

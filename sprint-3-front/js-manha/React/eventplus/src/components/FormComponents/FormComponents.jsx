@@ -1,15 +1,15 @@
 import React from 'react';
-import './FromComponents.css'
+import './FormComponents.css'
 
 export const Input = ( {
     type,
     id,
     value,
     required,
-    additionalClass,
     name,
     placeholder,
-    manipulationFunction
+    manipulationFunction,
+    additionalClass = ""
 } ) => {
     return (
         <input 
@@ -37,20 +37,13 @@ export const Button = ( props ) => {
             id={props.id}
             name={props.name}
             type={props.type}
-            className={props.additionalClass}
+            className={`button-component ${props.additionalClass}`}
             onClick={props.manipulationFunction}
         >
             {props.textButton}
         </button>
     );
 }
-
-options = [
-    {value: "", text: "Selecione" },
-    {value: "asjkfhkajsfjhask", text: "SQL Server" },
-    {value: "asjkfhkajsfjhaskufr34", text: "JavaScript" }
-];//veio do banco de dados pela api
-
 
 export const Select = ({
     required,
