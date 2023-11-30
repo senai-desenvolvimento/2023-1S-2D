@@ -1,0 +1,138 @@
+@font-face {
+    font-family: Poppins-Regular;
+    src: url(../../assets/fonts/Poppins/Poppins-Regular.ttf);
+  }
+  @font-face {
+    font-family: Poppins-Thin;
+    src: url(../../assets/fonts/Poppins/Poppins-Thin.ttf);
+  }
+  
+  /* mobile first */
+  /* cuidado com os nomes  */
+  .layout-grid-login {
+    width: 100vw;
+    height: 100vh;
+    max-width: 992px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid green; */
+  }
+  .frm-login__formbox {
+    max-width: 350px;
+    width: 100%;
+    height: 60%;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .frm-login {
+    width: 100%;
+    height: 90vh;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* border: 1px solid green; */
+  }
+  .login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login__illustration {
+    display: none;
+  }
+  
+  .frm-login__logo {
+    width: 274px;
+  }
+  
+  .frm-login__button,
+  .frm-login__entry {
+    margin-top: 40px;
+  }
+  
+  .frm-login__entry {
+    padding-bottom: 10px;
+    /* font-family: Poppins-Regular; */
+  }
+  
+  .frm-login__entry::placeholder {
+    color: lightgrey;
+  }
+  
+  .frm-login__link {
+    text-decoration: none;
+    margin-top: 40px;
+    color: lightgrey;
+    font-size: 0.9rem;
+    font-family: Poppins-Regular;
+  }
+  
+  @media screen and (min-width: 992px) {
+    .login {
+      position: relative;
+      z-index: 1;
+      width: 992px;
+      height: 500px;
+      margin: 0 auto;
+      justify-content: space-between;
+      /* border: 1px solid red; */
+    }
+    .ilustrator-brox {
+      display: block;
+    }
+    .login__illustration {
+      display: block;
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 60%;
+      height: 100%;
+      overflow: hidden;
+      /* border: 2px solid black; */
+    }
+  
+    .login__illustration-rotate {
+      position: absolute;
+      top: -280px;
+      left: -204px;
+      z-index: 2;
+      transform: rotate(20deg);
+      width: 120%;
+      height: 180%;
+      /* background-color: rgba(181, 29, 68, 0.3); */
+      background-color: var(--color-red);
+    }
+  
+    .login-illustrator {
+      position: absolute;
+      top: calc(50% - (166px / 2));
+      left: 80px;
+      z-index: 3;
+      width: 320px;
+      height: 166px;
+    }
+  
+    .frm-login {
+      max-width: 310px;
+      height: 95%;
+      /* border: 1px solid red; */
+    }
+    .frm-login__logo {
+      width: 250px;
+    }
+  
+    .frm-login__entry,
+    .frm-login__button,
+    .frm-login__link {
+      margin-top: 30px;
+    }
+  }
+  

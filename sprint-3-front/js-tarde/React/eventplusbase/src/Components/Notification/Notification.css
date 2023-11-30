@@ -1,0 +1,79 @@
+@font-face {
+    font-family: Poppins-SemiBold;
+    src: url(../../assets/fonts/Poppins/Poppins-SemiBold.ttf);
+}
+@font-face {
+    font-family: Poppins-Regular;
+    src: url(../../assets/fonts/Poppins/Poppins-Regular.ttf);
+}
+
+.notification {
+    position: fixed;
+    bottom: -500px;
+    left: 0;
+    z-index: 60000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    width: 100%;
+    height: auto;
+    min-height: 80px;
+    padding: 5px 10px;
+    overflow: auto;
+    background-color: var(--color-white);
+    box-shadow: 0 0 25px rgba(0, 0, 0, .2);
+    border-radius: 5px 5px 0 0;
+
+    opacity: 0;
+    transition: opacity 0.5s, bottom.3s, right .4s;
+}
+
+/* muda as propriedades para visualizar o elemento */
+.notification--show {
+    opacity: 1;
+    bottom: 0;
+}
+
+.notification__icon {
+    width: 50px;
+}
+.notification__close {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    color: var(--color-red);
+    cursor: pointer;
+}
+.notification__message-box {
+    width: 90%;
+    /* border: 1px solid red; */
+
+}
+
+.notification__title {
+    font-family: Poppins-SemiBold;
+    font-size: 1rem;
+}
+
+.notification__text {
+    font-family: Poppins-Regular;
+    font-size: .8rem;
+}
+
+
+
+@media screen and (min-width: 992px) {
+
+    .notification {
+        width: 350px;
+        left: auto;
+        bottom: auto;
+        right: -500px;
+        top: 90px;
+    }
+
+    .notification--show {right: 5px}
+}
