@@ -1,0 +1,13 @@
+/* loading.io - referência para gerar o svg */
+
+.spinner {
+    position: fixed;
+    top: calc(50% - 35px/2);
+    left: calc(50% - 35px/2);
+    border-radius: 50%;
+    z-index: 50000;
+}
+
+@media screen and (min-width: 992px) {
+    
+}

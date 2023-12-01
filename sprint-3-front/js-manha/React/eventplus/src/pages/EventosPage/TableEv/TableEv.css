@@ -1,0 +1,96 @@
+/* Smartphone */
+@font-face {
+    font-family: Poppins-Thin;
+    src: url(../../../assets/fonts/Poppins/Poppins-Thin.ttf);
+  }
+  @font-face {
+    font-family: Poppins-Semibold;
+    src: url(../../../assets/fonts/Poppins/Poppins-SemiBold.ttf);
+  }
+  @font-face {
+    font-family: Poppins-Regular;
+    src: url(../../../assets/fonts/Poppins/Poppins-Regular.ttf);
+  }
+  
+  /* Custommizations */
+  
+  /* Tootip */
+  
+  .custom-tootip {
+    color: #B51D44 !important;
+    background-color: #fff !important;
+  }
+  
+  /* Smartphone */
+  .table-data {
+    /* table */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 466px; /* apagar */
+    margin-top: 60px;
+    color: var(--color-white);
+    /* border: 1px solid white; */
+  }
+  
+  .table-data__head-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--color-white);
+  }
+  
+  .table-data__head-title,
+  .table-data__data {
+    width: 100%;
+    padding: 5px 5px 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    /* border: 1px solid white; */
+  }
+  
+  .table-data__head-title:first-of-type,
+  .table-data__data:first-of-type {
+    text-align: left;
+  }
+  
+  .table-data__data {
+    margin-bottom: 15px;
+  }
+  
+  .table-data__head-title--big,
+  .table-data__data--big {
+    width: 60%;
+  }
+  .table-data__data--handover {
+    cursor: pointer;
+  }
+  
+  .table-data__head-title--little,
+  .table-data__data--little {
+    width: 20%;
+  }
+  
+  .table-data__head-title {
+    font-family: Poppins-Semibold;
+    font-size: 1.1rem !important;
+  }
+  
+  .table-data__data {
+    font-family: Poppins-Regular;
+    font-size: 0.9rem !important;
+  }
+  
+  .table-data__icon {
+    cursor: pointer;
+  }
+  
+  @media screen and (min-width: 992px) {
+    .table-data__head-title,
+    .table-data__head-data {
+      font-size: 1rem;
+    }
+  }
+  

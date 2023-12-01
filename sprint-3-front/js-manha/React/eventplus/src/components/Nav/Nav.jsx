@@ -3,12 +3,12 @@ import './Nav.css';
 
 import logoMobile from '../../assets/images/logo-white.svg';
 import logoDesktop from '../../assets/images/logo-pink.svg';
+import { Link } from 'react-router-dom';
 
-import { Link } from 'react-router-dom'; 
 
 const Nav = ({ exibeNavbar, setExibeNavbar }) => {
 
-    console.log(`EXIBE O MENU? ${exibeNavbar}`);
+    // console.log(`EXIBE O MENU? ${exibeNavbar}`);
 
     return (
         <nav className={`navbar ${exibeNavbar ? "exibeNavbar" : ""}`}>
@@ -31,8 +31,8 @@ const Nav = ({ exibeNavbar, setExibeNavbar }) => {
                 <Link to="/" className='navbar__item'>Home</Link>
                 <Link  className='navbar__item' to="/tipo-eventos">Tipos de Evento</Link>
                 <Link  className='navbar__item' to="/eventos">Eventos</Link>
-                <Link  className='navbar__item' to="/login">Login</Link>
-                <Link  className='navbar__item' to="/testes">Testes</Link>
+                {/* <Link  className='navbar__item' to="/login">Login</Link> */}
+                {/* <Link  className='navbar__item' to="/testes">Testes</Link> */}
             </div>
         </nav>
     );

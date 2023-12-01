@@ -9,11 +9,13 @@ import Title from "../../components/Title/Title";
 import NextEvent from "../../components/NextEvent/NextEvent";
 import Container from "../../components/Container/Container";
 import api from "../../Services/Service";
-
+import Notification from "../../components/Notification/Notification";
 import { nextEventResource } from "../../Services/Service";
+
+
 const HomePage = () => {
   const [nextEvents, setNextEvents] = useState([]);
- 
+  const [notifyUser, setNotifyUser] = useState(); //Componente Notification
 
   // roda somente na inicialização do componente
   useEffect(() => {
@@ -23,8 +25,17 @@ const HomePage = () => {
         const dados = await promise.data;
         console.log(dados);
         setNextEvents(dados); //atualiza o state
+
       } catch (error) {
-        console.log("Deu ruim na api!");
+        
+        setNotifyUser({
+          titleNote: "Erro",
+          textNote: `Não foi possível carregar os próximos eventos. Verifique a sua conexão com a internet`,
+          imgIcon: "danger",
+          imgAlt:
+          "Imagem de ilustração de erro. Rapaz segurando um balão com símbolo x.",
+          showMessage: true,
+        });
       }
     }
 
@@ -32,7 +43,9 @@ const HomePage = () => {
   }, []);
 
   return (
+    
     <MainContent>
+      {<Notification {...notifyUser} setNotifyUser={setNotifyUser} />}
       <Banner />
 
       {/* PRÓXIMOS EVENTOS */}

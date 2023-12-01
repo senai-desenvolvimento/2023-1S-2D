@@ -19,10 +19,18 @@ export const nextEventResource = '/Evento/ListarProximos';
  * Rota para o recurso Tipos de Eventos
  */
 export const eventsTypeResource = '/TiposEvento';
+/**
+ * Rota para o recurso Instituição
+ */
+export const institutionResource = '/Instituicao';
+/**
+ * Rota para o recurso Login
+ */
+export const loginResource = '/Login';
 
 const apiPort = '5000';
 const localApiUri = `http://localhost:${apiPort}/api`;
-const externalApiUri = null;
+// const externalApiUri = null;
 
 const api = axios.create({
     baseURL: localApiUri
