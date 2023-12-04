@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Nav.css';
 import { Link } from 'react-router-dom';
 
 import logoMobile from '../../assets/images/logo-white.svg';
 import logoDesktop from '../../assets/images/logo-pink.svg';
+import { UserContext } from '../../context/AuthContext';
 
 const Nav = ( { setExibeNavbar, exibeNavbar } ) => {
+
+    const {userData} = useContext(UserContext);
+
     return (
         <nav className={`navbar ${exibeNavbar ? "exibeNavbar" : ""}`}>
             <span 
@@ -25,8 +29,17 @@ const Nav = ( { setExibeNavbar, exibeNavbar } ) => {
 
             <div className='navbar__items-box'>
                 <Link to="/" className='navbar__item'>Home</Link>
-                <Link to="/tipo-eventos" className='navbar__item'>Tipo Eventos</Link>
-                <Link to="/eventos" className='navbar__item'>Eventos</Link>
+                {userData.role === "Administrador" ? (//if
+                <>
+                    <Link to="/tipo-eventos" className='navbar__item'>Tipo Eventos</Link>
+                    <Link to="/eventos" className='navbar__item'>Eventos</Link>
+                </>
+                ) : (//if
+                    userData.role === "Comum" ? (
+                        <Link to="/eventos-aluno" className='navbar__item'>Eventos Aluno</Link>
+                    ) 
+                    : (null)
+                )}
             </div>
         </nav>
     );
