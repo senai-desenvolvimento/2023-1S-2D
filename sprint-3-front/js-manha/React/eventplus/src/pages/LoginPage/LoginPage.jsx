@@ -4,24 +4,22 @@ import logo from "../../assets/images/logo-pink.svg";
 import { Input, Button } from "../../components/FormComponents/FormComponents";
 import loginImage from "../../assets/images/login.svg";
 import api, { loginResource } from "../../Services/Service";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import "./LoginPage.css";
 import { UserContext, userDecodeToken } from "../../context/AuthContext";
 
 const LoginPage = () => {
-
-  const [user, setUser] = useState({ email: "edu@admin.com", senha: "" });
+  const [user, setUser] = useState({ email: "edu@admin.com", senha: "123456" });
   //importa os dados globais do usuário
   const { userData, setUserData } = useContext(UserContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(userData.nome) {
+    if (userData.nome) {
       navigate("/");
     }
   }, [userData]);
-
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -29,18 +27,19 @@ const LoginPage = () => {
     // validar usuário e senha:
     // tamanho mínimo de caracteres : 3
     if (user.email.length >= 3 && user.senha.length >= 3) {
+      
+      
       try {
         const promise = await api.post(loginResource, {
           email: user.email,
           senha: user.senha,
         });
-        
-        const userFullToken = userDecodeToken(promise.data.token);// decodifica o token vindo da api
 
-        setUserData(userFullToken);// guarda o token globalmente
+        const userFullToken = userDecodeToken(promise.data.token); // decodifica o token vindo da api
+
+        setUserData(userFullToken); // guarda o token globalmente
         localStorage.setItem("token", JSON.stringify(userFullToken));
-        navigate("/");//envia o usuário para a home
-
+        navigate("/"); //envia o usuário para a home
       } catch (error) {
         // erro da api: bad request (401) ou erro de conexão
         alert("Verifique os dados e a conexão com a internet!");

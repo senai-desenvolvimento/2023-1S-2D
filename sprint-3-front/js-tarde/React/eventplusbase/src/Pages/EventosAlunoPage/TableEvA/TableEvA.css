@@ -1,0 +1,111 @@
+/* Smartphone */
+@font-face {
+    font-family: Poppins-Thin;
+    src: url(../../../assets/fonts/Poppins/Poppins-Thin.ttf);
+  }
+  @font-face {
+    font-family: Poppins-Semibold;
+    src: url(../../../assets/fonts/Poppins/Poppins-SemiBold.ttf);
+  }
+  @font-face {
+    font-family: Poppins-Regular;
+    src: url(../../../assets/fonts/Poppins/Poppins-Regular.ttf);
+  }
+  
+  /* Custommizations */
+  
+  /* Tootip */
+  
+  .custom-tootip {
+    color: #B51D44 !important;
+    background-color: #fff !important;
+  }
+  
+  /* Smartphone */
+  .tbal-data {
+    /* tbal */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /*height: 466px;  apagar */
+    margin-top: 60px;
+    color: var(--color-white);
+    color: var(--text-color);
+    /* border: 1px solid white; */
+  }
+  
+  .tbal-data__head-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--text-color);
+  }
+  .tbal-data__head-row--red-color {
+    border-bottom-color: var(--color-red);
+  }
+  .tbal-data__head-title,
+  .tbal-data__data {
+  
+    width: 100%;
+    padding: 5px 5px 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    /* border: 1px solid white; */
+  }
+  
+  .tbal-data__head-title:first-of-type,
+  .tbal-data__data:first-of-type {
+    text-align: left;
+  }
+  
+  .tbal-data__data {
+    display: flex;
+    align-items: baseline;
+    /* margin-bottom: 15px; */
+  }
+  
+  .tbal-data__head-title--big,
+  .tbal-data__data--big {
+    width: 60%;
+  }
+  .tbal-data__data--handover {
+    cursor: pointer;
+  }
+  
+  .tbal-data__head-title--little,
+  .tbal-data__data--little {
+    width: 20%;
+  }
+  
+  .tbal-data__head-title {
+    font-family: Poppins-Semibold;
+    font-size: .95rem ;
+  }
+  
+  .tbal-data__data {
+    font-family: Poppins-Regular;
+    font-size: 0.8rem;
+  }
+  
+  .tbal-data__icon {
+    cursor: pointer;
+  }
+  
+  .tbal-data__btn-actions {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 8px;
+  }
+  
+  @media screen and (min-width: 992px) {
+    .tbal-data__head-title,
+    .tbal-data__head-data {
+      font-size: 1rem;
+    }
+  
+    .tbal-data__btn-actions { gap: 15px; }
+  }
+  

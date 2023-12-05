@@ -1,0 +1,132 @@
+@font-face {
+    font-family: Poppins-SemiBold;
+    src: url(../../assets/fonts/Poppins/Poppins-SemiBold.ttf);
+  }
+  
+  @font-face {
+    font-family: Poppins-Medium;
+    src: url(../../assets/fonts/Poppins/Poppins-Medium.ttf);
+  }
+  
+  @font-face {
+    font-family: Poppins-Regular;
+    src: url(../../assets/fonts/Poppins/Poppins-Regular.ttf);
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.45);
+  }
+  
+  .modal__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 275px;
+    height: 435px;
+  
+    padding: 20px 10px;
+  
+    background-color: var(--color-white);
+    border-radius: 5px;
+  }
+  
+  .modal__title {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-family: Poppins-SemiBold;
+    font-size: 0.875rem;
+    /* text-transform: uppercase; */
+  }
+  
+  .modal__close {
+    align-self: flex-end;
+    font-family: Poppins-Regular;
+    font-size: 1.3rem;
+    color: var(--color-red);
+    cursor: pointer;
+  }
+  .comentary {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  
+    width: 100%;
+    /* margin-top: 70px; */
+  }
+  
+  .comentary__title {
+    font-size: 0.875rem;
+    font-family: Poppins-Medium;
+  }
+  .comentary__icon-delete {
+    width: 15px;
+    height: 16px;
+  }
+  
+  .comentary__text {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 0.875rem;
+    font-family: Poppins-Regular;
+  }
+  .comentary__separator {
+    width: 100%;
+    margin-top: 25px;
+    border: 1px solid #b4a9a9;
+  }
+  
+  .comentary__entry {
+    font-size: 0.75rem;
+    border: none;
+    border-bottom: 1px solid #000;
+    padding: 5px;
+  }
+  .comentary__entry::placeholder {
+    font-family: Poppins-Regular;
+    
+    color: #b4a9a9;
+  }
+  
+  .comentary__button {
+    font-family: Poppins-Regular;
+    font-size: 1rem;
+  }
+  
+  @media screen and (min-width: 992px) {
+    .modal__box {
+      width: 550px;
+      height: 550px;
+      padding: 40px 35px;
+    }
+    .modal__title,
+    .comentary__title, 
+    .comentary__entry,
+    .comentary__button {
+      font-size: 1.125rem;
+    }
+    .comentary__text {
+      font-size: 1rem;
+    }
+  
+    .comentary__icon-delete {
+      width: 20px;
+      height: 22px;
+    }
+    .comentary__button {
+      height: 54px;
+    }
+  
+  }
+  
