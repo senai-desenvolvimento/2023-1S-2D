@@ -14,7 +14,7 @@
     transition: 1.2s;
 }
 
-.toggle__switch {
+.toggle___switch {
     position: absolute;
     top: calc(50% - 7px);
     left: 1px;
@@ -30,18 +30,18 @@
 
 .toggle__switch-check { display: none;}
 
+
 .toggle--active {
-    /* justify-content: flex-end; */
-    border: 2px solid #B51D44;
+  border: 2px solid #B51D44;
     background-color: #B51D44;
 }
-
-.toggle__switch--active {
-    left: auto;
+.toggle___switch--active {
+  left: auto;
     right: 1px;
     background-color: #fff;
     border-color: #fff;
 }
+
 
 .switch {
     position: relative;

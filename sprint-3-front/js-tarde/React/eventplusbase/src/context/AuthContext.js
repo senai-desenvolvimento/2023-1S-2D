@@ -4,11 +4,6 @@ import { createContext } from "react";
 export const UserContext = createContext(null);
 
 export const userDecodeToken = (theToken) => {
-    const decoded = jwtDecode(theToken);//aqui retorna o payload do token
-    return { 
-        role: decoded.role, 
-        name: decoded.name, 
-        userId: decoded.jti, 
-        token:  theToken
-    }
+    const decoded = jwtDecode(theToken);//objeto do payload
+    return { role: decoded.role, userId: decoded.jti, nome: decoded.name, token: theToken }
 }

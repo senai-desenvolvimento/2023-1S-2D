@@ -1,8 +1,8 @@
 import React from "react";
 import comentaryIcon from "../../../assets/images/comentary-icon.svg";
 import trashDelete from "../../../assets/images/trash-delete.svg";
-import { dateFormateDbToView } from "../../../Utils/stringFunctions";
-import ToggleSwitch from "../../../components/Toggle/Toggle";
+import { dateFormatDbToView } from "../../../Utils/stringFunction";
+import ToggleSwitch from "../../../Components/Toggle/Toggle";
 // importa a biblioteca de tootips ()
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
@@ -35,8 +35,8 @@ const Table = ({ dados, fnConnect = null, fnShowModal = null }) => {
               </td>
               
               <td className="tbal-data__data tbal-data__data--big tbal-data__btn-actions">
-                {e.dataEvento}
-                {/* {dateFormateDbToView(e.dataEvento)} */}
+                {/* {e.dataEvento} */}
+                {dateFormatDbToView(e.dataEvento)}
               </td>
 
               <td className="tbal-data__data tbal-data__data--big tbal-data__btn-actions">
@@ -48,7 +48,16 @@ const Table = ({ dados, fnConnect = null, fnShowModal = null }) => {
                   onClick={fnShowModal}
                 />
 
-                <ToggleSwitch manipulationFunction={fnConnect} />
+                <ToggleSwitch 
+                  toggleActive={e.situacao} 
+                  manipulationFunction={() => {
+                    fnConnect(
+                      e.idEvento, 
+                      e.situacao ? "unconnect" : "connect",
+                      e.idPresencaEvento// parâmetro opcional
+                    )
+                  }} 
+                />
               </td>
             </tr>
           );

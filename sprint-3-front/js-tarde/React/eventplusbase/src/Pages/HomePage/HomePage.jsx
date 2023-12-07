@@ -1,41 +1,51 @@
-import React, { useContext, useEffect, useState } from "react";
-import './HomePage.css'
-import MainContent from "../../Components/MainContent/MainContent";
-import Banner from "../../Components/Banner/Banner";
-import VisionSection from "../../Components/VisionSection/VisionSection";
-import ContactSection from "../../Components/ContactSection/ContactSection";
-import NextEvent from "../../Components/NextEvent/NextEvent";
-import Title from "../../Components/Title/Title";
-import Container from "../../Components/Container/Container";
+import React, { useEffect, useState } from "react";
+import "./HomePage.css";
+
+import Banner from "../../components/Banner/Banner";
+import MainContent from "../../components/MainContent/MainContent";
+import VisionSection from "../../components/VisionSection/VisionSection";
+import ContactSection from "../../components/ContactSection/ContactSection";
+import Title from "../../components/Title/Title";
+import NextEvent from "../../components/NextEvent/NextEvent";
+import Container from "../../components/Container/Container";
 import api from "../../Services/Service";
-import { UserContext } from "../../context/AuthContext";
+import Notification from "../../components/Notification/Notification";
+import { nextEventResource } from "../../Services/Service";
+
 
 const HomePage = () => {
-  const {userData} = useContext(UserContext)
-
-  console.log("DADOS GLOBAIS DO USUÁRIO");
-  console.log(userData);
-    useEffect(()=> {
-      // chamar a api
-      async function getProximosEventos() {
-        try {
-          const promise = await api.get("/Evento/ListarProximos");
-
-          setNextEvents(promise.data);
-
-        } catch (error) {
-          console.log('Deu ruim na api');
-        }
-      }
-      getProximosEventos();
-       
-    }, []);
-
-  // fake mock - api mocada
   const [nextEvents, setNextEvents] = useState([]);
+  const [notifyUser, setNotifyUser] = useState(); //Componente Notification
+
+  // roda somente na inicialização do componente
+  useEffect(() => {
+    async function getNextEvents() {
+      try {
+        const promise = await api.get(nextEventResource);
+        const dados = await promise.data;
+        console.log(dados);
+        setNextEvents(dados); //atualiza o state
+
+      } catch (error) {
+        console.log("não trouxe os próximos eventos, verifique lá!");
+        // setNotifyUser({
+        //   titleNote: "Erro",
+        //   textNote: `Não foi possível carregar os próximos eventos. Verifique a sua conexão com a internet`,
+        //   imgIcon: "danger",
+        //   imgAlt:
+        //   "Imagem de ilustração de erro. Rapaz segurando um balão com símbolo x.",
+        //   showMessage: true,
+        // });
+      }
+    }
+
+    getNextEvents(); //chama a função
+  }, []);
 
   return (
+    
     <MainContent>
+      {<Notification {...notifyUser} setNotifyUser={setNotifyUser} />}
       <Banner />
 
       {/* PRÓXIMOS EVENTOS */}
@@ -44,20 +54,17 @@ const HomePage = () => {
           <Title titleText={"Próximos Eventos"} />
 
           <div className="events-box">
-            
-            {
-              nextEvents.map((e) => {
-                return(
-                    <NextEvent
-                      title={e.nomeEvento}
-                      description={ e.descricao}
-                      eventDate={e.dataEvento}
-                      idEvento={e.idEvento}
-                    />
-                );
-              })
-            }
-            
+            {nextEvents.map((e) => {
+              return (
+                <NextEvent
+                  key={e.idEvento}
+                  title={e.nomeEvento}
+                  description={e.descricao}
+                  eventDate={e.dataEvento}
+                  idEvent={e.idEvento}
+                />
+              );
+            })}
           </div>
         </Container>
       </section>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import trashDelete from "../../assets/images/trash-delete-red.png";
 
 import { Button, Input } from "../FormComponents/FormComponents";
@@ -10,17 +10,26 @@ const Modal = ({
   userId = null,
   showHideModal = false,
   fnDelete = null,
-  fnNewCommentary = null
-
+  fnGet = null,
+  fnPost = null,
 }) => {
+
+  useEffect(() => {
+    async function carregarDados() {
+      fnGet();
+    }
+
+    carregarDados();
+  }, []);
 
   return (
     <div className="modal">
       <article className="modal__box">
-        
         <h3 className="modal__title">
           {modalTitle}
-          <span className="modal__close" onClick={()=> showHideModal(true)}>x</span>
+          <span className="modal__close" onClick={() => showHideModal(true)}>
+            x
+          </span>
         </h3>
 
         <div className="comentary">
@@ -29,7 +38,9 @@ const Modal = ({
             src={trashDelete}
             className="comentary__icon-delete"
             alt="Ícone de uma lixeira"
-            onClick={fnDelete}
+            onClick={() => {
+              fnDelete();
+            }}
           />
 
           <p className="comentary__text">{comentaryText}</p>
@@ -45,7 +56,9 @@ const Modal = ({
         <Button
           textButton="Comentar"
           additionalClass="comentary__button"
-          manipulationFunction={fnNewCommentary}
+          manipulationFunction={() => {
+            fnPost();
+          }}
         />
       </article>
     </div>

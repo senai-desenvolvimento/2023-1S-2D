@@ -1,28 +1,26 @@
 import React, { useContext } from "react";
 import iconeLogout from "../../assets/images/icone-logout.svg";
-import { UserContext } from "../../context/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
-
 import "./PerfilUsuario.css";
 
+import { UserContext } from "../../context/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
 const PerfilUsuario = () => {
-    const { userData, setUserData } = useContext(UserContext);
-    const navigate = useNavigate();
+  const { userData, setUserData } = useContext(UserContext);
+  const navigate = useNavigate();
 
-    const logout = () => {
-        localStorage.clear();
-        setUserData({})
-        navigate("/");
-    }
+  const logout = () => {
+    localStorage.removeItem("token");
+    setUserData({});
+    navigate("/");
+  };
 
   return (
     <div className="perfil-usuario">
-      {userData.name ? (
+      {userData.nome ? (
         <>
-          <span className="perfil-usuario__menuitem">{userData.name}</span>
-
+          <span className="perfil-usuario__menuitem">{userData.nome}</span>
           <img
-          onClick={logout}
+            onClick={logout}
             title="Deslogar"
             className="perfil-usuario__icon"
             src={iconeLogout}
@@ -30,7 +28,9 @@ const PerfilUsuario = () => {
           />
         </>
       ) : (
-        <Link to="/login" className="perfil-usuario__menuitem">Login</Link>
+        <Link to="/login" className="perfil-usuario__menuitem">
+          Login
+        </Link>
       )}
     </div>
   );

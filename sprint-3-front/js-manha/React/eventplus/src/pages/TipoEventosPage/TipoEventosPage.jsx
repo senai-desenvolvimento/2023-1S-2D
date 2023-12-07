@@ -1,284 +1,269 @@
 import React, { useEffect, useState } from "react";
+import Title from "../../Components/Title/Title";
 import "./TipoEventosPage.css";
-import Title from "../../components/Title/Title";
-import MainContent from "../../components/MainContent/MainContent";
-import Container from "../../components/Container/Container";
-import ImageIllustrator from "../../components/ImageIllustrator/ImageIllustrator";
+import MainContent from "../../Components/MainContent/MainContent";
+import ImageIllustrator from "../../Components/ImageIllustrator/ImageIllustrator";
+
+import eventTypeImage from "../../assets/images/tipo-evento.svg";
+import Container from "../../Components/Container/Container";
+import { Input, Button } from "../../Components/FormComponents/FormComponents";
+import api from "../../Services/Service";
 import TableTp from "./TableTp/TableTp";
-import tipoEventoImage from "../../assets/images/tipo-evento.svg";
-import { Input, Button } from "../../components/FormComponents/FormComponents";
-import api, { eventsTypeResource } from "../../Services/Service";
-import Notification from "../../components/Notification/Notification";
-import Spinner from "../../components/Spinner/Spinner";
+
+import Notification from "../../Components/Notification/Notification";
+import Spinner from "../../Components/Spinner/Spinner";
+
+
 
 const TipoEventosPage = () => {
+
+  // state do componente Notification
+  const [notifyUser, setNotifyUser] = useState({});
+  const [showSpinner, setShowSpinner] = useState(false);
+
+  const [frmEdit, setFrmEdit] = useState(false);
   
-  // states
-  const [frmEdit, setFrmEdit] = useState(false); //está em modo edição?
   const [titulo, setTitulo] = useState("");
-  const [idEvento, setIdEvento] = useState(null); //para editar, por causa do evento!
-  const [tipoEventos, setTipoEventos] = useState([]); //array
-  const [notifyUser, setNotifyUser] = useState(); //Componente Notification
-  const [showSpinner, setShowSpinner] = useState(false); //Spinner Loading
+  const [idEvento, setIdEvento] = useState(null);//usar apenas para a edição
 
-  // Função que após a página/DOM estar pronta
-  useEffect(() => {
-    // define a chamada em nossa api
-    async function loadEventsType() {
-      setShowSpinner(true);
-      
+  const [tipoEventos, setTipoEventos] = useState([]); //array mocado
+
+  // Ao carregar a página
+  useEffect(()=> {
+    async function getTipoEventos() {
+     setShowSpinner(true);
       try {
-        const retorno = await api.get(eventsTypeResource);
-        setTipoEventos(retorno.data);
-        console.log(retorno.data);
-      } catch (error) {
-        console.log("Erro na api");
-        console.log(error);
-      }
+        const retorno = await api.get('/TiposEvento');
+        console.log(retorno);
+        setTipoEventos(retorno.data)
 
+      } catch (error) {
+        console.log("Deu ruim na api");
+        setNotifyUser({
+          titleNote: "Erro",
+          textNote: `Deu ruim na api`,
+          imgIcon: "danger",
+          imgAlt:
+            "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
+          showMessage: true,
+        });
+        // console.log(error);
+      }
+      
       setShowSpinner(false);
     }
-    // chama a função/api no carregamento da página/componente
-    loadEventsType();
+
+    getTipoEventos();
   }, []);
 
-  // ***************************** CADASTRAR *****************************
-  async function handleSubmit(e) {
-    e.preventDefault(); //evita o submit do formulário
-    setShowSpinner(true);
 
+  
+// Cadastrar
+  async function handleSubmit(e) {
+    // parar o submit do formulário
+    e.preventDefault();
+    // validar pelo menos 3 caracteres
     if (titulo.trim().length < 3) {
+      
       setNotifyUser({
         titleNote: "Aviso",
-        textNote: `O título deve ter pelo menos 3 caracteres`,
+        textNote: `O Título deve ter no mínimo 3 caracteres`,
         imgIcon: "warning",
         imgAlt:
-          "Imagem de ilustração de aviso. Moça em frente a um símbolo de exclamação!",
+          "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
         showMessage: true,
       });
       return;
     }
-
+    // chamar a api
     try {
-      await api.post(eventsTypeResource, {
-        titulo: titulo,
-      });
-
-      setTitulo(""); //limpa o state
-      // avisa o usuário
+      const retorno = await api.post("/TiposEvento", { titulo: titulo });
+      
       setNotifyUser({
         titleNote: "Sucesso",
-        textNote: `O título deve ter pelo menos 3 caractere`,
+        textNote: `Cadastrado com sucesso!`,
         imgIcon: "success",
         imgAlt:
           "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
         showMessage: true,
       });
+      console.log(retorno.data);
+      setTitulo(""); //limpa a variável
 
-      // Atualiza a tela
-      const buscaEventos = await api.get(eventsTypeResource);
-      setTipoEventos(buscaEventos.data); //aqui retorna um array, então de boa!
+      const retornoGet = await api.get('/TiposEvento');
+      setTipoEventos(retornoGet.data);
+
     } catch (error) {
-      setNotifyUser({
-        titleNote: "Erro",
-        textNote: `Erro na operação. Verifique a conexão com a internet`,
-        imgIcon: "danger",
-        imgAlt:
-          "Imagem de ilustração de erro. Rapaz segurando um balão com símbolo x.",
-        showMessage: true,
-      });
+      console.log("Deu ruim na api:");
+      console.log(error);
     }
-
-    setShowSpinner(false);
   }
 
   /********************* EDITAR CADASTRO *********************/
-  // mostra o formulário de edição
-  async function showUpdateForm(idElement) {
+
+  async function showUpdateForm(idElemento) {
     setFrmEdit(true);
-    setIdEvento(idElement); // preenche o id do evento para poder atualizar
-    setShowSpinner(true);
+    // criar um state para idEvento igual ao título ***
+
     try {
-      const retorno = await api.get(`${eventsTypeResource}/${idElement}`);
+      // fazer um get by id para pegar os dados
+      const retorno = await api.get('/TiposEvento/' + idElemento );
+      
+      // preencher o título e o id no state 
       setTitulo(retorno.data.titulo);
-      console.log(retorno.data);
-    } catch (error) {}
-    setShowSpinner(false);
+      setIdEvento(retorno.data.idTipoEvento);
+
+    } catch (error) {
+      alert("Não foi possível mostrar a tela de edição. tente novamente")
+    }
+
   }
-  // cancela a tela/ação de edição (volta para o form de cadastro)
+
+  async function handleUpdate(e) {
+    e.preventDefault();
+
+    try {
+      // salvar os dados
+      const retorno = await api.put('/TiposEvento/' + idEvento, {
+        titulo: titulo
+      })
+
+      // atualizar o state (api get)
+      const retornoGet = await api.get('/TiposEvento');
+      setTipoEventos(retornoGet.data);//atualiza o state da tabela
+      alert("Atualizado com sucesso!");
+      // limpar o state do título e do idEvento
+      editActionAbort();
+
+    } catch (error) {
+      alert ("Problemas na atualização. Verifique a conexão com a internet!")
+    }
+  }
+
+  // reseta o state e cancela a tela de edição
   function editActionAbort() {
     setFrmEdit(false);
-    setTitulo(""); //reseta as variáveis
-    setIdEvento(null); //reseta as variáveis
+    setTitulo("");
+    setIdEvento(null);
   }
-  // cadastrar a atualização na api
-  async function handleUpdate(e) {
-    e.preventDefault(); //para o evento de submit
-    setShowSpinner(true);
 
+  async function handleDelete(idEvento) {
     try {
-      // atualiar na api
-     
-      const retorno = await api.put(eventsTypeResource + "/" + idEvento,{
-        titulo : titulo
-      }); //o id está no state
-      
+      const retorno = await api.delete(`/TiposEvento/${idEvento}`);
 
-      if (retorno.status === 204) {
-        setNotifyUser({
-          titleNote: "Sucesso",
-          textNote: `Cadastro atualizado com sucesso!`,
-          imgIcon: "success",
-          imgAlt:
-            "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
-          showMessage: true,
-        });
-
-        // atualizar os dados na tela
-        const retorno = await api.get(eventsTypeResource);
-        setTipoEventos(retorno.data);
-
-        // volta para a tela de cadastro
-        editActionAbort();
-      }
-    } catch (error) {
-      //  notificar o erro ao usuário
+      // alert("Registro apagado com sucesso");
       setNotifyUser({
-        titleNote: "Erro",
-        textNote: `Erro na operação. Por favor verifique a conexão!`,
-        imgIcon: "danger",
+        titleNote: "Sucesso",
+        textNote: `Registro apagado com sucesso!`,
+        imgIcon: "success",
         imgAlt:
-          "Imagem de ilustração de erro. Rapaz segurando um balão com símbolo x.",
+          "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
         showMessage: true,
       });
-    }
+      
+      const retornoGet = await api.get('/TiposEvento');
+      setTipoEventos(retornoGet.data)
 
-    setShowSpinner(false);
-  }
-
-  /********************* APAGAR DADOS *********************/
-  // apaga o tipo de evento na api
-  async function handleDelete(idElement) {
-    // se confirmar a exclusão, cancela a ação
-    if (window.confirm("Confirma a exclusão?")) {
-      setShowSpinner(true);
-      try {
-        const promise = await api.delete(`${eventsTypeResource}/${idElement}`);
-
-        if (promise.status === 204) {
-          setNotifyUser({
-            titleNote: "Sucesso",
-            textNote: `Cadastro apagado com sucesso!`,
-            imgIcon: "success",
-            imgAlt:
-              "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
-            showMessage: true,
-          });
-
-          // DESAFIO: fazer uma função para retirar o registro apagado do array tipoEventos
-          const buscaEventos = await api.get(eventsTypeResource);
-          setTipoEventos(buscaEventos.data); //aqui retorna um array, então de boa!
-        }
-      } catch (error) {
-        alert("Problemas ao apagar o elemento!");
-      }
-      setShowSpinner(false);
+    } catch (error) {
+      console.log("Erro ao excluir");
     }
   }
+
   return (
-    <>
-      {<Notification {...notifyUser} setNotifyUser={setNotifyUser} />}
+    <MainContent>
+      <Notification {...notifyUser} setNotifyUser={setNotifyUser} />
+      { showSpinner ? <Spinner /> : null }
       
-      {/* SPINNER - Feito com position */}
-      {showSpinner ? <Spinner /> : null}
-      
-      <MainContent>
-        {/* formulário de cadastro do tipo do evento */}
-        <section className="cadastro-evento-section">
-          <Container>
-            <div className="cadastro-evento__box">
-              <Title titleText={"Cadastro Tipo de Eventos"} />
-
-              <ImageIllustrator imageRender={tipoEventoImage} />
-
-              <form
-                className="ftipo-evento"
-                onSubmit={frmEdit ? handleUpdate : handleSubmit}
-              >
-                {/* cadastrar ou editar? */}
-                {!frmEdit ? (
-                  // Cadastrar
-                  <>
-                    <Input
-                      id="Titulo"
-                      placeholder="Título"
-                      name={"titulo"}
-                      type={"text"}
-                      required={"required"}
-                      value={titulo}
-                      manipulationFunction={(e) => {
-                        setTitulo(e.target.value);
-                      }}
-                    />
-                    <Button
-                      textButton="Cadastrar"
-                      id="cadastrar"
-                      name="cadastrar"
-                      type="submit"
-                    />
-                  </>
-                ) : (
-                  // Editar
-                  <>
-                    <Input
-                      id="Titulo"
-                      placeholder="Título"
-                      name={"titulo"}
-                      type={"text"}
-                      required={"required"}
-                      value={titulo}
-                      manipulationFunction={(e) => {
-                        setTitulo(e.target.value);
-                      }}
-                    />
-                    <div className="buttons-editbox">
-                      <Button
-                        textButton="Atualizar"
-                        id="atualizar"
-                        name="atualizar"
-                        type="submit"
-                        additionalClass="button-component--middle"
-                      />
-                      <Button
-                        textButton="Cancelar"
-                        id="cancelar"
-                        name="cancelar"
-                        type="button"
-                        manipulationFunction={editActionAbort}
-                        additionalClass="button-component--middle"
-                      />
-                    </div>
-                  </>
-                )}
-              </form>
-            </div>
-          </Container>
-        </section>
-
-        {/* Listagem de tipo de eventos */}
-        <section className="lista-eventos-section">
-          <Container>
-            <Title titleText={"Lista Tipo de Eventos"} color="white" />
-
-            <TableTp
-              dados={tipoEventos}
-              fnUpdate={showUpdateForm}
-              fnDelete={handleDelete}
+      {/* Cadastro de tipo de eventos */}
+      <section className="cadastro-evento-section">
+        <Container>
+          <div className="cadastro-evento__box">
+            <Title titleText={"Página Tipos de Eventos"} />
+            <ImageIllustrator
+              alterText={"??????"}
+              imageRender={eventTypeImage}
             />
-          </Container>
-        </section>
-      </MainContent>
-    </>
+
+            <form
+              className="ftipo-evento"
+              onSubmit={frmEdit ? handleUpdate : handleSubmit}
+            >
+              {!frmEdit ? (
+                <>
+                  {/* Cadastrar */}
+                  <Input
+                    type={"text"}
+                    id={"titulo"}
+                    name={"titulo"}
+                    placeholder={"Título"}
+                    required={"required"}
+                    value={titulo}
+                    manipulationFunction={(e) => {
+                      setTitulo(e.target.value);
+                    }}
+                  />
+                  <Button
+                    type={"submit"}
+                    id={"cadastrar"}
+                    name={"cadastrar"}
+                    textButton={"Cadastrar"}
+                  />
+                </>
+              ) : (
+                <>
+                  {/* Editar */}
+                  <Input 
+                    id="titulo"
+                    placeholder="Título"
+                    name="titulo"
+                    type="text"
+                    required="required"
+                    value={titulo}
+                    manipulationFunction={(e) =>{
+                      setTitulo(e.target.value)
+                    }}
+                  />
+
+                  <div className="buttons-editbox">
+                    <Button 
+                      textButton="Atualizar"
+                      id="atualizar"
+                      name="atualizar"
+                      type="submit"
+                      additionalClass="button-component--middle"
+                    />
+                    <Button 
+                      textButton="Cancelar"
+                      id="cancelar"
+                      name="cancelar"
+                      type="button"
+                      manipulationFunction={editActionAbort}
+                      additionalClass="button-component--middle"
+                    />
+                  </div>
+                </>
+              )}
+
+              {/*  */}
+            </form>
+          </div>
+        </Container>
+      </section>
+
+      {/* Listagem de tipo de eventos */}
+      <section className="lista-eventos-section">
+        <Container>
+          <Title titleText={"Lista Tipo de Eventos"} color="white" />
+
+          <TableTp
+            dados={tipoEventos}
+            fnUpdate={showUpdateForm}
+            fnDelete={handleDelete}
+          />
+        </Container>
+      </section>
+
+    </MainContent>
   );
 };
 

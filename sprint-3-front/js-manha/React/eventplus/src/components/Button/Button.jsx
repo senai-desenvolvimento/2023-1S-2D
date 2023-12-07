@@ -1,13 +1,11 @@
 import React from "react";
 
-const Button = ({ textButton, type }) => {
+const Button = (props) => {//constructor
   return (
-    <button 
-      type={type}
-    >
-      {textButton}
+    <button type={props.tipo}>
+      {props.textoBotao}
     </button>
-  );
+    );
 };
 
 export default Button;

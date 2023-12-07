@@ -1,23 +1,22 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom"; //v6
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// imports dos componentes de página
-import HomePage from "../pages/HomePage/HomePage";
-import TipoEventos from "../pages/TipoEventosPage/TipoEventosPage";
-import EventosPage from "../pages/EventosPage/EventosPage";
-import LoginPage from "../pages/LoginPage/LoginPage";
-import TestePage from "../pages/TestePage/TestePage";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
+// import dos componentes de página
+import HomePage from "../Pages/HomePage/HomePage";
+import TipoEventosPage from "../Pages/TipoEventosPage/TipoEventosPage";
+import EventosPage from "../Pages/EventosPage/EventosPage";
+import EventosAlunoPage from "../Pages/EventosAlunoPage/EventosAlunoPage";
+import LoginPage from "../Pages/LoginPage/LoginPage";
+import TestePage from "../Pages/TestePage/TestePage";
+
+import Header from "../Components/Header/Header";
+import Footer from "../Components/Footer/Footer";
 import { PrivateRoute } from "./PrivateRoute";
-import EventosAlunoPage from "../pages/EventosAlunoPage/EventosAlunoPage";
 
-// Componente Rota
 const Rotas = () => {
   return (
     <BrowserRouter>
       <Header />
-
       <Routes>
         <Route element={<HomePage />} path="/" exact />
 
@@ -25,7 +24,7 @@ const Rotas = () => {
           path="/tipo-eventos"
           element={
             <PrivateRoute redirectTo="/">
-              <TipoEventos />
+              <TipoEventosPage />
             </PrivateRoute>
           }
         />
@@ -42,7 +41,7 @@ const Rotas = () => {
         <Route
           path="/eventos-aluno"
           element={
-            <PrivateRoute redirectTo="/">
+            <PrivateRoute>
               <EventosAlunoPage />
             </PrivateRoute>
           }
@@ -51,7 +50,6 @@ const Rotas = () => {
         <Route element={<LoginPage />} path="/login" />
         <Route element={<TestePage />} path="/testes" />
       </Routes>
-
       <Footer />
     </BrowserRouter>
   );

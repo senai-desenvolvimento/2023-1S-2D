@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
 const TestePage = () => {
-  const [count, setCount] = useState(100);
-  const [calculation, setCalculation] = useState(0);
 
-  //executa quando o componente for montado
-  //e quando o state count for alterado
+  const [count, setCount] = useState(10);
+  const [calculation, setCalculation] = useState(10);//20
+
+  //roda quando o componente for carregado
+  // e também quando o count for atualizado
   useEffect(() => {
-    setCalculation( count * 2 );
-    console.log(`Rodou ${count}`);
-  }, []);
+    setCalculation(count * 2);
+    console.log('Rodei');
+  },[count]);
 
   return (
-    <>
+    <div>
       <p>Count: {count}</p>
       <button onClick={() => setCount((c) => c + 1)}>+</button>
       <p>Calculation: {calculation}</p>
-    </>
+    </div>
   );
 };
 

@@ -1,19 +1,16 @@
 import React from 'react';
-import './ImageIllustrator.css'
-import imageDefault from "../../assets/images/default-image.jpeg";
+import './ImageIlustrator.css';
+import imageDefault from '../../assets/images/default-image.jpeg'
 
-const ImageIllustrator = ({ 
-        alterText, 
-        imageRender = imageDefault, 
-        additionalClass = "" 
-    }) => {
-
+const ImageIllustrator = ({ alteText, imageRender = imageDefault, additionalClass = "" }) => {
+    
+    
     return (
         <figure className='illustrator-box'>
             <img 
-                src={imageRender}
-                alt={alterText} 
-                className={`illustrator-box__image  ${additionalClass}`}
+                src={imageRender} 
+                alt={alteText} 
+                className={`illustrator-box__image ${additionalClass}`} 
             />
         </figure>
     );
