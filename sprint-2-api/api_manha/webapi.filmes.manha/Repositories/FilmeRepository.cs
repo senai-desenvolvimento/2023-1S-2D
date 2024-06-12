@@ -83,7 +83,7 @@ namespace webapi.filmes.manha.Repositories
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 // Declara a query a ser executada
-                string querySelectById = "SELECT Filme.IdFilme, Filme.Titulo, Filme.IdGenero, Genero.Nome FROM Filme INNER JOIN Genero ON Filme.IdGenero = Genero.IdGenero";
+                string querySelectById = "SELECT Filme.IdFilme, Filme.Titulo, Filme.IdGenero, Genero.Nome FROM Filme INNER JOIN Genero ON Filme.IdGenero = Genero.IdGenero WHERE IdFilme = @ID";
 
                 // Abre a conexão com o banco de dados
                 con.Open();
